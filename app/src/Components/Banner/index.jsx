@@ -1,5 +1,8 @@
-const Banner = () => {
-  return <h1>Banner</h1>;
+import Banner from "../../Assets/banner.png";
+import { Img } from "./style";
+
+const BannerArea = () => {
+  return <Img  alt="banner" src={Banner} />;
 };
 
-export default Banner;
+export default BannerArea;
