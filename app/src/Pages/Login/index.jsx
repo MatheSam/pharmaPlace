@@ -7,6 +7,7 @@ import { Container } from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Header from "../../Components/Header";
 
 const Login = () => {
   const schema = yup.object().shape({
