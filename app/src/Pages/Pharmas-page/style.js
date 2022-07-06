@@ -5,7 +5,12 @@ export const Container = styled.div`
   div {
     display: flex;
     justify-content: center;
-    margin-top:31px ;
+    margin-top: 31px;
     font-size: 12px;
   }
+`;
+export const ContainerCards = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
