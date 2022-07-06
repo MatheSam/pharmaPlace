@@ -4,6 +4,7 @@ export const ThemeHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100vw;
 
   height: 120px;
 
@@ -36,18 +37,18 @@ export const ThemeHeader = styled.header`
     width: 120px;
 
     @media (max-width: 500px) {
-      width: 80px;
+      width: 100px;
     }
 
     .btnCart,
     .btnUser {
-      @media (max-width: 500px) {
-        font-size: 30px;
-      }
       font-size: 35px;
       border: none;
       background: transparent;
       color: var(--primary);
+      @media (max-width: 500px) {
+        font-size: 25px;
+      }
     }
   }
 `;

@@ -18,6 +18,7 @@ export default createGlobalStyle`
     --fifth: #83C8F9;
     --orange: #E64727;
     --green: #4FC646;
+    --blue: #0077B6;
 
     --main-font: 'Roboto', sans-serif;
     --second-font: 'Poppins', sans-serif;
