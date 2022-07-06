@@ -2,7 +2,9 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container } from "../Register-seller/style";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "./../../services/api";
+import { toast } from "react-toastify";
 
 const RegisterUser = () => {
   const schema = yup.object().shape({
@@ -30,7 +32,22 @@ const RegisterUser = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const formData = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const formData = (data) => {
+    data["isPharmacy"] = false;
+    api
+      .post("/users/register", data)
+      .then((resp) => {
+        toast.success("Conta criada com sucesso!");
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      })
+      .catch((error) => {
+        toast.error(error.response.data);
+      });
+  };
 
   return (
     <Container style={{ height: "100vh" }}>

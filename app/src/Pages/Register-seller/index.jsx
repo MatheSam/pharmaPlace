@@ -7,10 +7,6 @@ import { Link } from "react-router-dom";
 const RegisterSeller = () => {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório").min(4),
-    cnpj: yup
-      .string()
-      .required("Campo obrigatório")
-      .matches(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/),
     photo: yup.string().required("Campo obrigatório"),
     address: yup.string().required("Campo obrigatório"),
     city: yup.string().required("Campo obrigatório"),
@@ -38,6 +34,7 @@ const RegisterSeller = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  //isPharmacy = true
   const formData = (data) => console.log(data);
 
   return (
@@ -56,14 +53,6 @@ const RegisterSeller = () => {
             {...register("name")}
           />
           <span className="error">{errors.name?.message}</span>
-
-          <label htmlFor="">CNPJ</label>
-          <input
-            type="text"
-            placeholder="10.256.587/0001-18"
-            {...register("cnpj")}
-          />
-          <span className="error">{errors.cnpj?.message}</span>
 
           <label htmlFor="">Foto</label>
           <input type="text" placeholder="URL Foto" {...register("photo")} />
