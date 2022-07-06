@@ -92,7 +92,7 @@ const ModalEdit = () => {
             </select>
             <span className="error">{errors.categoria?.message}</span>
 
-            <button type="submit">CADASTRAR</button>
+            <button type="submit">ATUALIZAR</button>
           </Form>
         </Box>
       </Modal>

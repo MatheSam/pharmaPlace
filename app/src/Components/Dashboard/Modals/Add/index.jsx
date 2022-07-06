@@ -27,9 +27,9 @@ const ModalAdd = () => {
 
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório").min(4),
-    price: yup.number().required("Campo obrigatório"),
+    /* price: yup.string().required("Campo obrigatório"), */
     imagem: yup.string().required("Campo obrigatório"),
-    categoria: yup.string().required("Campo obrigatório"),
+    category: yup.string().required("Campo obrigatório"),
   });
 
   const {
@@ -38,6 +38,7 @@ const ModalAdd = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  //pegar userID
   const formData = (data) => console.log(data);
 
   return (
@@ -68,7 +69,7 @@ const ModalAdd = () => {
             <input type="text" placeholder="Link URL" {...register("imagem")} />
             <span className="error">{errors.imagem?.message}</span>
             <label htmlFor="">Categoria</label>
-            <select name="" id="" {...register("categoria")}>
+            <select name="" id="" {...register("category")}>
               <option value="">Selecione a categoria</option>
               <option value="medicamentos">Medicamentos</option>
               <option value="saude">Saúde</option>
@@ -78,7 +79,7 @@ const ModalAdd = () => {
               <option value="infantil">Infantil</option>
               <option value="conveniencia">Conveniência</option>
             </select>
-            <span className="error">{errors.categoria?.message}</span>
+            <span className="error">{errors.category?.message}</span>
 
             <button type="submit">CADASTRAR</button>
           </Form>
