@@ -1,10 +1,13 @@
 import { BsShop } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "./../../services/api";
+import { toast } from "react-toastify";
 import { Container } from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FiAlertCircle } from "react-icons/fi";
 
 const Login = () => {
   const schema = yup.object().shape({
@@ -21,7 +24,25 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const formData = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const formData = (data) => {
+    api
+      .post("/login", data)
+      .then((resp) => {
+        toast.success("Seja bem vindo");
+        console.log(resp);
+        localStorage.setItem("@userToken", resp.data.accessToken);
+        localStorage.setItem("@userData", JSON.stringify(resp.data.user));
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.response.data);
+      });
+  };
 
   return (
     <Container>
@@ -33,34 +54,55 @@ const Login = () => {
             placeholder="email@mail.com"
             {...register("email")}
           />
-          <span className="error">{errors.email?.message}</span>
+          <span className="error">
+            {errors.email?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.email?.message}
+              </>
+            )}
+          </span>
           <label htmlFor="">Senha</label>
           <input
             type="password"
             placeholder="Senha"
             {...register("password")}
           />
-          <span className="error">{errors.password?.message}</span>
+          <span className="error">
+            {errors.password?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.password?.message}
+              </>
+            )}
+          </span>
           <button type="submit">LOGIN</button>
         </form>
       </div>
       <hr />
-      <div className="cadastroLogin">
-        <h2>CADASTRO</h2>
+      <div className="options">
+        <div className="cadastroLogin">
+          <h2>CADASTRO</h2>
 
-        <Link to={"/registerSeller"}>
-          <h3>Para vendedores</h3>
-          <span>
-            <BsShop />
-          </span>
-        </Link>
+          <Link to={"/registerSeller"}>
+            <h3>Para vendedores</h3>
+            <span>
+              <BsShop />
+            </span>
+          </Link>
 
-        <Link to={"/registerUser"}>
-          <h3>Para consumidores</h3>
-          <span>
-            <FiUserPlus />
-          </span>
-        </Link>
+          <Link to={"/registerUser"}>
+            <h3>Para consumidores</h3>
+            <span>
+              <FiUserPlus />
+            </span>
+          </Link>
+        </div>
+        <div className="home">
+          <Link to={"/"}>
+            <h2>HOME</h2>
+          </Link>
+        </div>
       </div>
     </Container>
   );

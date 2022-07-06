@@ -2,10 +2,13 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
+import { GrAddCircle } from "react-icons/gr";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Form } from "./style";
+import api from "../../../../services/api";
+import { toast } from "react-toastify";
 
 const style = {
   position: "absolute",
@@ -26,9 +29,9 @@ const ModalAdd = () => {
 
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório").min(4),
-    price: yup.number().required("Campo obrigatório"),
+    /* price: yup.string().required("Campo obrigatório"), */
     imagem: yup.string().required("Campo obrigatório"),
-    categoria: yup.string().required("Campo obrigatório"),
+    category: yup.string().required("Campo obrigatório"),
   });
 
   const {
@@ -37,11 +40,32 @@ const ModalAdd = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const formData = (data) => console.log(data);
+  //pegar userID
+  const formData = (data) => {
+    const token = localStorage.getItem("@userToken");
+    const id = JSON.parse(localStorage.getItem("@userData")).id;
+    data["userId"] = id;
+
+    api
+      .post("/products", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        toast.success("Produto criado com sucesso!");
+        console.log(resp);
+        handleClose();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.response.data);
+      });
+  };
 
   return (
     <div>
-      <Button onClick={handleOpen}>Modal Adicionar</Button>
+      <Button onClick={handleOpen}>Adicionar um novo produto </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -65,7 +89,7 @@ const ModalAdd = () => {
             <input type="text" placeholder="Link URL" {...register("imagem")} />
             <span className="error">{errors.imagem?.message}</span>
             <label htmlFor="">Categoria</label>
-            <select name="" id="" {...register("categoria")}>
+            <select name="" id="" {...register("category")}>
               <option value="">Selecione a categoria</option>
               <option value="medicamentos">Medicamentos</option>
               <option value="saude">Saúde</option>
@@ -75,7 +99,7 @@ const ModalAdd = () => {
               <option value="infantil">Infantil</option>
               <option value="conveniencia">Conveniência</option>
             </select>
-            <span className="error">{errors.categoria?.message}</span>
+            <span className="error">{errors.category?.message}</span>
 
             <button type="submit">CADASTRAR</button>
           </Form>

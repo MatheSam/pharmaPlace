@@ -2,10 +2,12 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
+import { FaRegEdit } from "react-icons/fa";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Form } from "../Add/style";
+import { createTheme } from "@mui/material/styles";
 
 const style = {
   position: "absolute",
@@ -18,6 +20,17 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#000",
+    },
+    seconday: {
+      main: "#000",
+    },
+  },
+});
 
 const ModalEdit = () => {
   const [open, setOpen] = React.useState(false);
@@ -41,7 +54,9 @@ const ModalEdit = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Modal Editar</Button>
+      <Button theme={theme} onClick={handleOpen}>
+        <FaRegEdit />
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -77,7 +92,7 @@ const ModalEdit = () => {
             </select>
             <span className="error">{errors.categoria?.message}</span>
 
-            <button type="submit">CADASTRAR</button>
+            <button type="submit">ATUALIZAR</button>
           </Form>
         </Box>
       </Modal>

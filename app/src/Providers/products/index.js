@@ -5,18 +5,59 @@ export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [filteredInputProducts, setFilteredInputProducts] = useState([]);
+  const [filteredWhitCategory, setFilteredWhitCategory] = useState([]);
+  const [pharmaProductsList, setPharmaProductsList] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
-  const getproducts = async () => {
+  const getProducts = async () => {
     const response = await api.get("/products");
 
     return response.data;
   };
 
+  const inputFilterFunction = () => {
+    const filterInput = products.filter(({ name }) =>
+      name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setFilteredInputProducts(filterInput);
+  };
+
+  const filterWithCategory = (category) => {
+    const filterCategory = products.filter(
+      (product) => product.category === category
+    );
+    return setFilteredWhitCategory(filterCategory);
+  };
+
+  const pharmaProducts = (pharmaId) => {
+    const filter = products.filter((product) => product.userId === pharmaId);
+    return setPharmaProductsList(filter);
+  };
+
+  const removeProduct = (id) => {
+    const newList = products.filter((product) => product.id !== id);
+    setProducts(newList);
+  };
+
   useEffect(() => {
-    getproducts().then((resp) => setProducts(resp));
+    getProducts().then((resp) => setProducts(resp));
   }, []);
+
   return (
-    <ProductsContext.Provider value={{ products, getproducts }}>
+    <ProductsContext.Provider
+      value={{
+        products,
+        setProducts,
+        getProducts,
+        setInputValue,
+        inputFilterFunction,
+        filterWithCategory,
+        pharmaProducts,
+        pharmaProductsList,
+        removeProduct,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );

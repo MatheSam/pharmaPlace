@@ -1,16 +1,20 @@
 import CardsDashboard from "../../Components/Dashboard/Cards-dashboard";
+
+import Header from "../../Components/Header";
+import { SectionBox } from "./style";
+
 import ModalAdd from "../../Components/Dashboard/Modals/Add";
-import ModalDelete from "../../Components/Dashboard/Modals/Delete";
-import ModalEdit from "../../Components/Dashboard/Modals/Edit";
+import SearchInput from "../../Components/Filters/Input";
 
 const Dashboard = () => {
   return (
     <>
-      <h1>Dashboard</h1>
+      <Header />
+      <SearchInput />
+      <SectionBox>
+        <ModalAdd />
+      </SectionBox>
       <CardsDashboard />
-      <ModalEdit />
-      <ModalAdd />
-      <ModalDelete />
     </>
   );
 };
