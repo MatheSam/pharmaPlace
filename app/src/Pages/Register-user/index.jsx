@@ -52,6 +52,9 @@ const RegisterUser = () => {
   return (
     <Container style={{ height: "100vh" }}>
       <div>
+        <Link to={"/"}>
+          <h2>HOME</h2>
+        </Link>
         <Link to={"/login"}>
           <h2>login</h2>
         </Link>

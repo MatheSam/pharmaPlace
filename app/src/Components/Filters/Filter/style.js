@@ -40,6 +40,7 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: 400ms;
 
       box-shadow: 1px 1px 26px -11px rgba(0, 0, 0, 0.75);
       -webkit-box-shadow: 1px 1px 26px -11px rgba(0, 0, 0, 0.75);
@@ -49,18 +50,17 @@ export const Container = styled.div`
         width: 30px;
         height: 30px;
         color: var(--primary);
+        transition: 400ms;
       }
 
       &:hover {
         width: 65px;
         height: 65px;
         border-radius: 65px;
-        transition: 400ms;
 
         svg {
           width: 40px;
           height: 40px;
-          transition: 400ms;
         }
       }
     }
