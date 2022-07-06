@@ -1,8 +1,8 @@
 import { ThemeHeader } from "./style";
 import Logo from "../../Assets/Logo2.png";
-import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
 import MenuPopupState from "./Menu";
 import { Link } from "react-router-dom";
+import CustomizedBadges from "./IconCart";
 
 const Header = () => {
   return (
@@ -18,7 +18,7 @@ const Header = () => {
             <MenuPopupState />
           </button>
           <button className="btnCart">
-            <FaShoppingCart />
+            <CustomizedBadges />
           </button>
         </div>
       </div>

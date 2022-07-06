@@ -1,56 +1,69 @@
 import { Container } from "./style";
 import { RiAttachmentLine, RiHospitalFill } from "react-icons/ri";
-import { GiHealthNormal, GiLipstick } from "react-icons/gi";
+import { GiMedicines, GiHealthNormal, GiLipstick } from "react-icons/gi";
 import { ImMakeGroup } from "react-icons/im";
 import { TbMoodKid } from "react-icons/tb";
 import { MdLocalConvenienceStore } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ProductsContext } from "../../../Providers/products";
 
 const SearchFilter = () => {
+  const { filterWithCategory } = useContext(ProductsContext);
   return (
     <Container>
-      <section onClick={() => console.log("olá")} className="filter">
-        <div className="icon">
-          <RiHospitalFill />
-        </div>
-        <span className="name">Farmácias</span>
-      </section>
+      <Link to={"/pharmas"}>
+        <section className="filter">
+          <div className="icon">
+            <RiHospitalFill />
+          </div>
+          <span className="name">Farmácias</span>
+        </section>
+      </Link>
 
-      <section className="filter">
+      <section onClick={() => filterWithCategory("Saúde")} className="filter">
         <div className="icon">
           <GiHealthNormal />
         </div>
         <span className="name">Saúde</span>
       </section>
 
-      <section className="filter">
+      <section onClick={() => filterWithCategory("Beleza")} className="filter">
         <div className="icon">
           <GiLipstick />
         </div>
         <span className="name">Beleza</span>
       </section>
 
-      <section className="filter">
+      <section onClick={() => filterWithCategory("Dermocosméticos")} className="filter">
         <div className="icon">
           <ImMakeGroup />
         </div>
         <span className="name">Cosméticos</span>
       </section>
 
-      <section className="filter">
+      <section onClick={() => filterWithCategory("Higiene")} className="filter">
         <div className="icon">
           <RiAttachmentLine />
         </div>
         <span className="name">Higiene</span>
       </section>
 
-      <section className="filter">
+      <section onClick={() => filterWithCategory("Medicamentos")} className="filter">
+        <div className="icon">
+          <GiMedicines />
+        </div>
+        <span className="name">Medicamentos</span>
+      </section>
+
+      <section onClick={() => filterWithCategory("Infantil")} className="filter">
         <div className="icon">
           <TbMoodKid />
         </div>
         <span className="name">Infantil</span>
       </section>
 
-      <section className="filter">
+      <section onClick={() => filterWithCategory("Conveniência")} className="filter">
         <div className="icon">
           <MdLocalConvenienceStore />
         </div>

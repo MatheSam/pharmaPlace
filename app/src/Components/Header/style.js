@@ -13,6 +13,7 @@ export const ThemeHeader = styled.header`
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+
   .header {
     display: flex;
     align-items: center;
@@ -51,49 +52,28 @@ export const ThemeHeader = styled.header`
 
       .btnCart,
       .btnUser {
-        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
         width: 100px;
         height: 60px;
         font-size: 40px;
-      }
-
-      .btnCart {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        background: transparent;
-        color: var(--primary);
-        > svg {
-          font-size: 35px;
-        }
-        @media (max-width: 500px) {
-          font-size: 25px;
-        }
-      }
-      .btnUser {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        > button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
-          box-shadow: none;
+        button{
           background: transparent;
-          > svg {
-            width: 40px;
+          box-shadow: none;
+        }
+        svg {
+          height: 40px;
+          width: 40px;
+          border: none;
+          color: var(--primary);
+          path{
             height: 40px;
-            font-size: 40px;
-            border: none;
-            background: transparent;
-            color: var(--primary);
-
-            @media (max-width: 500px) {
-              font-size: 25px;
-            }
+            width: 40px;
+          }
+          @media (max-width: 500px) {
+            font-size: 25px;
           }
         }
       }

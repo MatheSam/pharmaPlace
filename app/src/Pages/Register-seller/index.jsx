@@ -2,16 +2,15 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container } from "./style";
-import { Link } from "react-router-dom";
-import Header from "../../Components/Header";
+import { Link, useNavigate } from "react-router-dom";
+import api from "./../../services/api";
+import { toast } from "react-toastify";
+import { useContext, useEffect } from "react";
+import { UsersContext } from "../../Providers/users";
 
 const RegisterSeller = () => {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório").min(4),
-    cnpj: yup
-      .string()
-      .required("Campo obrigatório")
-      .matches(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/),
     photo: yup.string().required("Campo obrigatório"),
     address: yup.string().required("Campo obrigatório"),
     city: yup.string().required("Campo obrigatório"),
@@ -39,11 +38,31 @@ const RegisterSeller = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const formData = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const { users, setUsers, getUsers } = useContext(UsersContext);
+  useEffect(() => {
+    getUsers().then((resp) => setUsers(resp));
+  }, []);
+  console.log(users);
+
+  const formData = (data) => {
+    data["isPharmacy"] = true;
+    api
+      .post("/users/register", data)
+      .then((resp) => {
+        toast.success("Conta criada com sucesso!");
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
+      })
+      .catch((error) => {
+        toast.error(error.response.data);
+      });
+  };
 
   return (
     <Container>
-      
       <div>
         <Link to={"/login"}>
           <h2>login</h2>
@@ -58,14 +77,6 @@ const RegisterSeller = () => {
             {...register("name")}
           />
           <span className="error">{errors.name?.message}</span>
-
-          <label htmlFor="">CNPJ</label>
-          <input
-            type="text"
-            placeholder="10.256.587/0001-18"
-            {...register("cnpj")}
-          />
-          <span className="error">{errors.cnpj?.message}</span>
 
           <label htmlFor="">Foto</label>
           <input type="text" placeholder="URL Foto" {...register("photo")} />
