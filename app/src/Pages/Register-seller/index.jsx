@@ -7,6 +7,7 @@ import api from "./../../services/api";
 import { toast } from "react-toastify";
 import { useContext, useEffect } from "react";
 import { UsersContext } from "../../Providers/users";
+import { FiAlertCircle } from "react-icons/fi";
 
 const RegisterSeller = () => {
   const schema = yup.object().shape({
@@ -64,6 +65,9 @@ const RegisterSeller = () => {
   return (
     <Container>
       <div>
+        <Link to={"/"}>
+          <h2>HOME</h2>
+        </Link>
         <Link to={"/login"}>
           <h2>login</h2>
         </Link>
@@ -76,11 +80,25 @@ const RegisterSeller = () => {
             placeholder="Remedios ltda"
             {...register("name")}
           />
-          <span className="error">{errors.name?.message}</span>
+          <span className="error">
+            {errors.name?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.name?.message}
+              </>
+            )}
+          </span>
 
           <label htmlFor="">Foto</label>
           <input type="text" placeholder="URL Foto" {...register("photo")} />
-          <span className="error">{errors.photo?.message}</span>
+          <span className="error">
+            {errors.photo?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.photo?.message}
+              </>
+            )}
+          </span>
 
           <label htmlFor="">Endereço</label>
           <input
@@ -88,11 +106,25 @@ const RegisterSeller = () => {
             placeholder="Rua das Andorinhas, 420"
             {...register("address")}
           />
-          <span className="error">{errors.address?.message}</span>
+          <span className="error">
+            {errors.address?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.address?.message}
+              </>
+            )}
+          </span>
 
           <label htmlFor="">Cidade</label>
           <input type="text" placeholder="Fortaleza" {...register("city")} />
-          <span className="error">{errors.city?.message}</span>
+          <span className="error">
+            {errors.city?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.city?.message}
+              </>
+            )}
+          </span>
 
           <label htmlFor="">Estado</label>
           <select name="" id="" {...register("state")}>
@@ -125,7 +157,14 @@ const RegisterSeller = () => {
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
           </select>
-          <span className="error">{errors.state?.message}</span>
+          <span className="error">
+            {errors.state?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.state?.message}
+              </>
+            )}
+          </span>
 
           <label htmlFor="">Email</label>
           <input
@@ -133,7 +172,14 @@ const RegisterSeller = () => {
             placeholder="email@mail.com"
             {...register("email")}
           />
-          <span className="error">{errors.email?.message}</span>
+          <span className="error">
+            {errors.email?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.email?.message}
+              </>
+            )}
+          </span>
 
           <label htmlFor="">Senha</label>
           <input
@@ -141,7 +187,14 @@ const RegisterSeller = () => {
             placeholder="Senha"
             {...register("password")}
           />
-          <span className="error">{errors.password?.message}</span>
+          <span className="error">
+            {errors.password?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.password?.message}
+              </>
+            )}
+          </span>
 
           <label htmlFor="">Confirmação Senha</label>
           <input
@@ -149,7 +202,14 @@ const RegisterSeller = () => {
             placeholder="Confirmação senha"
             {...register("confirmationPassword")}
           />
-          <span className="error">{errors.confirmationPassword?.message}</span>
+          <span className="error">
+            {errors.confirmationPassword?.message && (
+              <>
+                <FiAlertCircle />
+                {errors.confirmationPassword?.message}
+              </>
+            )}
+          </span>
           <button type="submit">CADASTRAR</button>
         </form>
       </div>

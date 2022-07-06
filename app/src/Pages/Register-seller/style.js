@@ -7,11 +7,12 @@ export const Container = styled.div`
   height: 1400px;
   justify-content: center;
   align-items: center;
+  padding-top: 40px;
 
   > div {
     display: flex;
     width: 350px;
-    justify-content: right;
+    justify-content: space-between;
     margin-bottom: 30px;
 
     a {
@@ -65,6 +66,9 @@ export const Container = styled.div`
     }
 
     span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin: 2px 0px 20px 0px;
       color: black;
       font-family: var(--main-font);
