@@ -30,6 +30,7 @@ const RegisterUser = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
+  //isPharmacy = true
   const formData = (data) => console.log(data);
 
   return (
