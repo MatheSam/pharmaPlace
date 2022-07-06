@@ -1,5 +1,11 @@
-const Banner = () => {
-  return <h1>Banner</h1>;
+import { Container, Img } from "./style";
+
+const BannerArea = () => {
+  return (
+    <Container>
+      <Img/>
+    </Container>
+  );
 };
 
-export default Banner;
+export default BannerArea;

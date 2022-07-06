@@ -11,6 +11,8 @@ export default createGlobalStyle`
 
 :root{
     --white: #fff;
+    --grey: #E5E5E5;
+    --grey2: #474747;
     --primary: #2E3192;
     --secundary: #4357AC;
     --terciary: #597DC6;
@@ -18,6 +20,10 @@ export default createGlobalStyle`
     --fifth: #83C8F9;
     --orange: #E64727;
     --green: #4FC646;
+    --blue: #0077B6;
+    --background-banner: #3063a8;
+
+
 
     --main-font: 'Roboto', sans-serif;
     --second-font: 'Poppins', sans-serif;
