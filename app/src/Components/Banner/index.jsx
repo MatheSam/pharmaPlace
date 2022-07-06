@@ -1,8 +1,11 @@
-import Banner from "../../Assets/banner.png";
-import { Img } from "./style";
+import { Container, Img } from "./style";
 
 const BannerArea = () => {
-  return <Img  alt="banner" src={Banner} />;
+  return (
+    <Container>
+      <Img/>
+    </Container>
+  );
 };
 
 export default BannerArea;
