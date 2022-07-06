@@ -45,7 +45,6 @@ export const Container = styled.div`
   border-radius: 10px;
 
   .iconsBox {
-    margin-top: 20px;
     width: 50px;
     height: 50px;
     display: flex;
@@ -54,7 +53,7 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    width: 340px;
+    width: 400px;
     height: 120px;
     margin: 20px;
     display: flex;
