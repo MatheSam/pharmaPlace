@@ -7,6 +7,8 @@ export const Container = styled.form`
   justify-content: center;
 
   padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
   background-color: var(--primary);
 

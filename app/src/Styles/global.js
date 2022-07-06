@@ -22,6 +22,7 @@ export default createGlobalStyle`
     --green: #4FC646;
     --blue: #0077B6;
     --background-banner: #3063a8;
+    --black: #000;
 
 
 
