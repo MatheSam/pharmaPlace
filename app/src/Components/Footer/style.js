@@ -8,6 +8,10 @@ export const ThemeFooter = styled.footer`
   justify-content: center;
   width: 100vw;
 
+  > span {
+    margin-bottom: 20px;
+  }
+
   > h3 {
     display: flex;
     align-items: center;
@@ -35,9 +39,9 @@ export const ThemeFooter = styled.footer`
       height: 40px;
       width: 250px;
       cursor: pointer;
-       &:hover{
+      &:hover {
         color: white;
-       }
+      }
 
       @media (max-width: 700px) {
         width: 200px;
@@ -46,8 +50,16 @@ export const ThemeFooter = styled.footer`
       @media (max-width: 500px) {
         width: 150px;
       }
-      > svg {
-        margin-right: 10px;
+      > a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+          color: white;
+        }
+        > svg {
+          margin-right: 10px;
+        }
       }
     }
   }

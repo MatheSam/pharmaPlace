@@ -6,25 +6,52 @@ import { MdOutlineContactMail } from "react-icons/md";
 const Footer = () => {
   return (
     <ThemeFooter>
-      <h3><MdOutlineContactMail/> Contato</h3>
+      <h3>
+        <MdOutlineContactMail /> Contato
+      </h3>
       <ul>
         <li>
-          <BsLinkedin />Francisco Jeihson
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/francisco-jeihson-alves-bezerra-%F0%9F%8F%B3%EF%B8%8F%E2%80%8D%F0%9F%8C%88-abaa98226/"
+          >
+            <BsLinkedin />
+            Francisco Jeihson
+          </a>
         </li>
         <li>
-          <BsLinkedin /> Gabriel Luz
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/gabriel-luz-%F0%9F%8F%B3%EF%B8%8F%E2%80%8D%F0%9F%8C%88-22287a213/"
+          >
+            <BsLinkedin /> Gabriel Luz
+          </a>
         </li>
         <li>
-          <BsLinkedin /> Julio César
+          <a target="_blank" href="https://www.linkedin.com/in/juliocpadua1/">
+            <BsLinkedin /> Julio César
+          </a>
         </li>
         <li>
-          <BsLinkedin /> Lucas Ribeiro
+          <a target="_blank" href="https://www.linkedin.com/in/juliocpadua1/">
+            <BsLinkedin /> Lucas Ribeiro
+          </a>
         </li>
         <li>
-          <BsLinkedin /> Matheus Sam
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/matheus-sam-navarro-57845316a/"
+          >
+            <BsLinkedin /> Matheus Sam
+          </a>
         </li>
         <li>
-          <BsLinkedin /> Matheus Zeiser
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/matheus-zeiser-836137230/"
+          >
+            <BsLinkedin /> Matheus Zeiser
+          </a>
         </li>
       </ul>
       <span>
