@@ -1,4 +1,3 @@
-
 import BannerArea from "../../Components/Banner";
 import SearchFilter from "../../Components/Filters/Filter";
 import Footer from "../../Components/Footer";
@@ -12,7 +11,7 @@ const Home = () => {
       <section>
         <SearchFilter />
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
