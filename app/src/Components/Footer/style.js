@@ -8,6 +8,8 @@ export const ThemeFooter = styled.footer`
   justify-content: center;
   width: 100vw;
 
+  margin-top: 5px;
+
   > span {
     margin-bottom: 20px;
   }
