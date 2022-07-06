@@ -1,15 +1,14 @@
 import { SectionBox, Container, BoxInfo } from "./style";
-import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
-import { GrAddCircle } from "react-icons/gr";
+import ModalAdd from "../Modals/Add";
+import ModalEdit from "../Modals/Edit";
+import ModalDelete from "../Modals/Delete";
 
 const CardsDashboard = () => {
   return (
     <>
       <SectionBox>
         <h2>MEUS PRODUTOS</h2>
-        <button>
-          <GrAddCircle />
-        </button>
+        <ModalAdd />
       </SectionBox>
       <Container>
         <img src="{img}" alt="{name}" />
@@ -19,8 +18,8 @@ const CardsDashboard = () => {
           <span>R$ 100,00</span>
         </BoxInfo>
         <div className="iconsBox">
-          <FaRegEdit />
-          <FaRegTrashAlt />
+          <ModalEdit />
+          <ModalDelete />
         </div>
       </Container>
     </>
