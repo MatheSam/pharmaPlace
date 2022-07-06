@@ -4,13 +4,13 @@ import Header from "../../Components/Header";
 
 const Home = () => {
   return (
-    <>
+    <div>
       <Header />
       <BannerArea />
       <section>
-        <SearchFilter  />
+        <SearchFilter />
       </section>
-    </>
+    </div>
   );
 };
 
