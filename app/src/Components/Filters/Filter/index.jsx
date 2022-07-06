@@ -1,6 +1,6 @@
 import { Container } from "./style";
 import { RiAttachmentLine, RiHospitalFill } from "react-icons/ri";
-import { GiHealthNormal, GiLipstick } from "react-icons/gi";
+import { GiMedicines, GiHealthNormal, GiLipstick } from "react-icons/gi";
 import { ImMakeGroup } from "react-icons/im";
 import { TbMoodKid } from "react-icons/tb";
 import { MdLocalConvenienceStore } from "react-icons/md";
@@ -41,6 +41,13 @@ const SearchFilter = () => {
           <RiAttachmentLine />
         </div>
         <span className="name">Higiene</span>
+      </section>
+
+      <section className="filter">
+        <div className="icon">
+          <GiMedicines />
+        </div>
+        <span className="name">Medicamentos</span>
       </section>
 
       <section className="filter">
