@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container } from "./style";
 import { Link } from "react-router-dom";
+import Header from "../../Components/Header";
 
 const RegisterSeller = () => {
   const schema = yup.object().shape({
@@ -42,6 +43,7 @@ const RegisterSeller = () => {
 
   return (
     <Container>
+      
       <div>
         <Link to={"/login"}>
           <h2>login</h2>

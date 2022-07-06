@@ -17,6 +17,7 @@ export const ThemeFooter = styled.footer`
     align-items: center;
     justify-content: space-between;
     width: 105px;
+    padding-top: 20px;
   }
   > ul {
     display: flex;
