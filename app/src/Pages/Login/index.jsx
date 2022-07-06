@@ -1,6 +1,8 @@
 import { BsShop } from "react-icons/bs";
 import { FiUserPlus } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "./../../services/api";
+import { toast } from "react-toastify";
 import { Container } from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -21,7 +23,25 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const formData = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const formData = (data) => {
+    api
+      .post("/login", data)
+      .then((resp) => {
+        toast.success("Seja bem vindo");
+        console.log(resp);
+        localStorage.setItem("@userToken", resp.data.accessToken);
+        localStorage.setItem("@userData", JSON.stringify(resp.data.user));
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.response.data);
+      });
+  };
 
   return (
     <Container>
