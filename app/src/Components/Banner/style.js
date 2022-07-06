@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import BannerMobile from "../../Assets/bannerMobile.png";
-import Banner from "../../Assets/banner.png";
+import Banner from "./../../Assets/banner.png";
 
 export const Img = styled.img`
   width: 1270px;
@@ -24,7 +24,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
 
   @media (max-width: 650px) {
     width: 100%;
