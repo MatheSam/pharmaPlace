@@ -16,7 +16,7 @@ export const UsersProvider = ({ children }) => {
     getUsers().then((resp) => setUsers(resp));
   }, []);
   return (
-    <UsersContext.Provider value={{ users, getUsers }}>
+    <UsersContext.Provider value={{ users, setUsers, getUsers }}>
       {children}
     </UsersContext.Provider>
   );

@@ -27,7 +27,7 @@ const ModalAdd = () => {
 
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório").min(4),
-    price: yup.number().required("Campo obrigatório"),
+    /* price: yup.string().required("Campo obrigatório"), */
     imagem: yup.string().required("Campo obrigatório"),
     category: yup.string().required("Campo obrigatório"),
   });

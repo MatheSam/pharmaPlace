@@ -42,7 +42,7 @@ const RegisterUser = () => {
         toast.success("Conta criada com sucesso!");
         setTimeout(() => {
           navigate("/login");
-        }, 2000);
+        }, 1000);
       })
       .catch((error) => {
         toast.error(error.response.data);
