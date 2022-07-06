@@ -10,7 +10,7 @@ export const ProductsProvider = ({ children }) => {
   const [pharmaProductsList, setPharmaProductsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  const getproducts = async () => {
+  const getProducts = async () => {
     const response = await api.get("/products");
 
     return response.data;
@@ -35,20 +35,27 @@ export const ProductsProvider = ({ children }) => {
     return setPharmaProductsList(filter);
   };
 
+  const removeProduct = (id) => {
+    const newList = products.filter((product) => product.id !== id);
+    setProducts(newList);
+  };
+
   useEffect(() => {
-    getproducts().then((resp) => setProducts(resp));
+    getProducts().then((resp) => setProducts(resp));
   }, []);
 
   return (
     <ProductsContext.Provider
       value={{
         products,
-        getproducts,
+        setProducts,
+        getProducts,
         setInputValue,
         inputFilterFunction,
         filterWithCategory,
         pharmaProducts,
         pharmaProductsList,
+        removeProduct,
       }}
     >
       {children}

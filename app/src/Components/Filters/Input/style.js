@@ -47,4 +47,9 @@ export const Container = styled.form`
     font-weight: bold;
     font-size: 18px;
   }
+
+  @media (min-width: 768px) {
+    .input {
+    }
+  }
 `;

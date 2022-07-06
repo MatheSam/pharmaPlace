@@ -1,67 +1,42 @@
 import styled from "styled-components";
 
-export const SectionBox = styled.div`
-  width: 100%;
-  height: 93px;
-  margin-bottom: 25px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 10px;
-
-  background-color: var(--orange);
-
-  button {
-    background-color: var(--orange);
-    width: 60px;
-    height: 40px;
-    border: 1px solid var(--white);
-    border-radius: 5px;
-    opacity: calc(0.6);
-  }
-
-  button:hover {
-    opacity: calc(1);
-  }
-
-  h2 {
-    color: var(--white);
-  }
-
-  @media (min-width: 768px) {
-  }
-`;
-
 export const Container = styled.div`
-  width: 100%;
-  height: 110px;
-  margin: 10px;
-
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 
-  background-color: var(--white);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-
-  .iconsBox {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  @media (min-width: 768px) {
-    width: 400px;
-    height: 120px;
+  .productsPharm {
+    width: 350px;
+    height: 150px;
+    margin: 10px;
     margin: 20px;
     display: flex;
 
-    .iconsBox {
-      width: 60px;
-      height: 60px;
-    }
+    background-color: var(--white);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+
+  .imgBox {
+    width: 90px;
+    height: 90px;
+    display: flex;
+  }
+
+  .iconsBox {
+    width: 40px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 `;
 

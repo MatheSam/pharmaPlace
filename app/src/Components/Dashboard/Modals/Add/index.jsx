@@ -65,9 +65,7 @@ const ModalAdd = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>
-        <GrAddCircle />
-      </Button>
+      <Button onClick={handleOpen}>Adicionar um novo produto </Button>
       <Modal
         open={open}
         onClose={handleClose}
