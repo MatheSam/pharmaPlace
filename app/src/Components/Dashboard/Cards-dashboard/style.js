@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+export const ContainerAll = styled.div``;
+
 export const SectionBox = styled.div`
   width: 100%;
   height: 93px;
@@ -26,9 +28,12 @@ export const SectionBox = styled.div`
 
   h2 {
     color: var(--white);
+    font-size: 20px;
   }
 
   @media (min-width: 768px) {
+    width: 250px;
+    height: 70px;
   }
 `;
 
