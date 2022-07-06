@@ -7,6 +7,7 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [filteredInputProducts, setFilteredInputProducts] = useState([]);
   const [filteredWhitCategory, setFilteredWhitCategory] = useState([]);
+  const [pharmaProductsList, setPharmaProductsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
   const getproducts = async () => {
@@ -29,6 +30,11 @@ export const ProductsProvider = ({ children }) => {
     return setFilteredWhitCategory(filterCategory);
   };
 
+  const pharmaProducts = (pharmaId) => {
+    const filter = products.filter((product) => product.userId === pharmaId);
+    return setPharmaProductsList(filter);
+  };
+
   useEffect(() => {
     getproducts().then((resp) => setProducts(resp));
   }, []);
@@ -41,6 +47,8 @@ export const ProductsProvider = ({ children }) => {
         setInputValue,
         inputFilterFunction,
         filterWithCategory,
+        pharmaProducts,
+        pharmaProductsList,
       }}
     >
       {children}
