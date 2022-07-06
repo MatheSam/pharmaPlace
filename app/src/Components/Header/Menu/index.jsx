@@ -2,14 +2,19 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import { FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { RiFileInfoFill } from "react-icons/ri";
 
 export default function MenuPopupState() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const navigate = useNavigate();
-
   const handleNav = (path, isTrue = false) => {
     navigate(path);
 
@@ -19,44 +24,54 @@ export default function MenuPopupState() {
   };
 
   const token = localStorage.getItem("@userToken");
-  console.log(token);
+
   return (
-    <PopupState variant="popover" popupId="demo-popup-menu">
-      {(popupState) => (
-        <React.Fragment>
-          <Button variant="contained" {...bindTrigger(popupState)}>
-            <FaUserCircle />
-          </Button>
-          <Menu {...bindMenu(popupState)}>
-            {token ? (
-              <MenuItem
-                onClick={() => {
-                  handleNav("/login", true);
-                }}
-              >
-                Log Out
-              </MenuItem>
-            ) : (
-              <>
-                <MenuItem
-                  onClick={() => {
-                    handleNav("/login");
-                  }}
-                >
-                  Login
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    handleNav("/registerUser");
-                  }}
-                >
-                  Cadastro
-                </MenuItem>
-              </>
-            )}
-          </Menu>
-        </React.Fragment>
-      )}
-    </PopupState>
+    <div>
+      <Button
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        <FaUserCircle />
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+      >
+        {token ? (
+          <MenuItem
+            onClick={() => {
+              handleNav("/login", true);
+            }}
+          >
+            Log Out
+          </MenuItem>
+        ) : (
+          <>
+            <MenuItem
+              onClick={() => {
+                handleNav("/login");
+              }}
+            >
+              Login
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleNav("/login");
+              }}
+            >
+              Cadastro
+            </MenuItem>
+          </>
+        )}
+      </Menu>
+    </div>
   );
 }
