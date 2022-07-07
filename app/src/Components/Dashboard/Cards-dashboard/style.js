@@ -4,9 +4,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   .productsPharm {
-    width: 350px;
+    width: 340px;
     height: 150px;
     margin: 10px;
     margin: 20px;
@@ -33,10 +34,12 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    margin: 20px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 

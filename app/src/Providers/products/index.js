@@ -32,11 +32,6 @@ export const ProductsProvider = ({ children }) => {
     return setFilteredProducts(filterCategory);
   };
 
-  const pharmaProducts = (pharmaId) => {
-    const filter = products.filter((product) => product.userId === pharmaId);
-    return setPharmaProductsList(filter);
-  };
-
   const removeProduct = (id) => {
     const newList = products.filter((product) => product.id !== id);
     setProducts(newList);
@@ -66,8 +61,8 @@ export const ProductsProvider = ({ children }) => {
         filteredProducts,
         inputFilterFunction,
         filterWithCategory,
-        pharmaProducts,
         pharmaProductsList,
+        setPharmaProductsList,
         removeProduct,
       }}
     >

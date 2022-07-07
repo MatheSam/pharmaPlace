@@ -7,7 +7,6 @@ export const SectionBox = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-radius: 10px;
 
   background-color: var(--orange);
 
@@ -27,10 +26,12 @@ export const SectionBox = styled.div`
   }
 
   @media (min-width: 768px) {
-    position: relative;
+    position: fixed;
     right: 0;
     bottom: 0;
-    width: 250px;
+    width: 200px;
     height: 70px;
+    margin-right: 5px;
+    border-radius: 10px;
   }
 `;
