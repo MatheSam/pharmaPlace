@@ -21,6 +21,7 @@ export default createGlobalStyle`
     --orange: #E64727;
     --green: #4FC646;
     --blue: #0077B6;
+    --redwine:  #a6192e;
     --background-banner: #3063a8;
 
     --body-background: #f4f4f4;
@@ -33,6 +34,7 @@ export default createGlobalStyle`
 
 body{
     background-color: var(--body-background);
+    font-family: var(--main-font);
 }
 
 input, button, label, select{

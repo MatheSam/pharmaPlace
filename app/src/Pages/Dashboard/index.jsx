@@ -5,17 +5,21 @@ import { SectionBox } from "./style";
 
 import ModalAdd from "../../Components/Dashboard/Modals/Add";
 import SearchInput from "../../Components/Filters/Input";
+import Footer from "../../Components/Footer";
 
 const Dashboard = () => {
   return (
-    <>
+    <div>
       <Header />
+
       <SearchInput />
       <SectionBox>
         <ModalAdd />
       </SectionBox>
       <CardsDashboard />
-    </>
+
+      <Footer />
+    </div>
   );
 };
 

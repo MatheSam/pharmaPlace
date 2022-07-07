@@ -34,9 +34,8 @@ const Login = () => {
         console.log(resp);
         localStorage.setItem("@userToken", resp.data.accessToken);
         localStorage.setItem("@userData", JSON.stringify(resp.data.user));
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+
+        resp.data.user.isPharmacy ? navigate("/dashboard") : navigate("/");
       })
       .catch((error) => {
         console.log(error);

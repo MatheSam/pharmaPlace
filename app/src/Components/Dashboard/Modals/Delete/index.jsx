@@ -40,7 +40,7 @@ const ModalDelete = ({ id }) => {
   return (
     <div>
       <Button theme={theme} onClick={handleClickOpen}>
-        <FaRegTrashAlt />
+        <FaRegTrashAlt size="20px" />
       </Button>
       <Dialog
         open={open}

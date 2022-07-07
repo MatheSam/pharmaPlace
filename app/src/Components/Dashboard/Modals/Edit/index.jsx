@@ -32,7 +32,7 @@ const theme = createTheme({
   },
 });
 
-const ModalEdit = () => {
+const ModalEdit = ({ id }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -55,7 +55,7 @@ const ModalEdit = () => {
   return (
     <div>
       <Button theme={theme} onClick={handleOpen}>
-        <FaRegEdit />
+        <FaRegEdit size="20px" />
       </Button>
       <Modal
         open={open}

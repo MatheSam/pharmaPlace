@@ -1,20 +1,20 @@
 import { Container, BoxInfo } from "./style";
 import { useContext } from "react";
 import { ProductsContext } from "../../../Providers/products";
-import { useEffect } from "react";
 import ModalEdit from "../Modals/Edit";
 import ModalDelete from "../Modals/Delete";
+import formatPrice from "../../../utils/formatPrice";
 
 const CardsDashboard = () => {
-  const { products, setProducts, getProducts } = useContext(ProductsContext);
+  const id = JSON.parse(localStorage.getItem("@userData")).id;
 
-  useEffect(() => {
-    getProducts().then((resp) => setProducts(resp));
-  }, []);
+  const { products } = useContext(ProductsContext);
+
+  const pharmaProducts = products.filter((prod) => prod.userId === id);
 
   return (
     <Container>
-      {products.map(({ image, name, category, price, id }) => (
+      {pharmaProducts?.map(({ image, name, category, price, id }) => (
         <div className="productsPharm" key={id}>
           <div className="imgBox">
             <img src={image} alt={name} />
@@ -22,15 +22,10 @@ const CardsDashboard = () => {
           <BoxInfo>
             <span>{name}</span>
             <span>{category.toUpperCase()}</span>
-            <span>
-              {price.toLocaleString("pt-br", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </span>
+            <p>{formatPrice(price)}</p>
           </BoxInfo>
           <div className="iconsBox">
-            <ModalEdit />
+            <ModalEdit id={id} />
             <ModalDelete id={id} />
           </div>
         </div>
