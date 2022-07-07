@@ -59,7 +59,14 @@ export const ThemeHeader = styled.header`
         width: 100px;
         height: 60px;
         font-size: 40px;
-        button{
+        @media (max-width: 500px) {
+          width: 70px;
+          height: 40px;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background: transparent;
           box-shadow: none;
         }
@@ -68,12 +75,9 @@ export const ThemeHeader = styled.header`
           width: 40px;
           border: none;
           color: var(--primary);
-          path{
-            height: 40px;
-            width: 40px;
-          }
           @media (max-width: 500px) {
-            font-size: 25px;
+            height: 30px;
+            width: 30px;
           }
         }
       }
