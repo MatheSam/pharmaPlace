@@ -55,7 +55,7 @@ const ModalEdit = ({ id }) => {
   return (
     <div>
       <Button theme={theme} onClick={handleOpen}>
-        <FaRegEdit />
+        <FaRegEdit size="20px" />
       </Button>
       <Modal
         open={open}
