@@ -33,6 +33,7 @@ export default createGlobalStyle`
 
 body{
     background-color: var(--body-background);
+    font-family: var(--main-font);
 }
 
 input, button, label, select{
