@@ -30,7 +30,7 @@ const ModalAdd = () => {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório").min(4),
     /* price: yup.string().required("Campo obrigatório"), */
-    imagem: yup.string().required("Campo obrigatório"),
+    image: yup.string().required("Campo obrigatório"),
     category: yup.string().required("Campo obrigatório"),
   });
 
@@ -86,8 +86,8 @@ const ModalAdd = () => {
             <span className="error">{errors.price?.message}</span>
 
             <label htmlFor="">Imagem</label>
-            <input type="text" placeholder="Link URL" {...register("imagem")} />
-            <span className="error">{errors.imagem?.message}</span>
+            <input type="text" placeholder="Link URL" {...register("image")} />
+            <span className="error">{errors.image?.message}</span>
             <label htmlFor="">Categoria</label>
             <select name="" id="" {...register("category")}>
               <option value="">Selecione a categoria</option>
