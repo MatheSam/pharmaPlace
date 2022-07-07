@@ -8,25 +8,20 @@ import { useContext} from "react";
 const PharmasPage = () => {
   const { users } = useContext(UsersContext);
 
-
-
   const isPharma = users.filter((item)=>{
     return item.isPharmacy === true
   })
   
-
-
   return (
     <Container>
       <Header />
       <div>
         <h1>FARMÁCIAS PARCEIRAS</h1>
       </div>
-      <ContainerCards>
+      <ContainerCards >
       {
         isPharma.map((pharm)=>(
           <CardsPharma  key={pharm.id} pharm={pharm}/>
-          
           ))
         }
       </ContainerCards>
