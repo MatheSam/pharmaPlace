@@ -5,8 +5,8 @@ export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const [filteredInputProducts, setFilteredInputProducts] = useState([]);
-  const [filteredWhitCategory, setFilteredWhitCategory] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
   const [pharmaProductsList, setPharmaProductsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
@@ -17,17 +17,19 @@ export const ProductsProvider = ({ children }) => {
   };
 
   const inputFilterFunction = () => {
-    const filterInput = products.filter(({ name }) =>
-      name.toLowerCase().includes(inputValue.toLowerCase())
+    const filterInput = products.filter(
+      ({ name, category }) =>
+        name.toLowerCase().includes(inputValue.toLowerCase()) ||
+        category.toLowerCase().includes(inputValue.toLowerCase())
     );
-    setFilteredInputProducts(filterInput);
+    setFilteredProducts(filterInput);
   };
 
   const filterWithCategory = (category) => {
     const filterCategory = products.filter(
       (product) => product.category === category
     );
-    return setFilteredWhitCategory(filterCategory);
+    return setFilteredProducts(filterCategory);
   };
 
   const pharmaProducts = (pharmaId) => {
@@ -41,8 +43,18 @@ export const ProductsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getProducts().then((resp) => setProducts(resp));
+    getProducts().then((resp) => {
+      setProducts(resp);
+      setFilteredProducts(resp);
+    });
   }, []);
+
+  useEffect(() => {
+    if (inputValue.length === 0) {
+      setFilteredProducts([...products]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inputValue]);
 
   return (
     <ProductsContext.Provider
@@ -51,6 +63,7 @@ export const ProductsProvider = ({ children }) => {
         setProducts,
         getProducts,
         setInputValue,
+        filteredProducts,
         inputFilterFunction,
         filterWithCategory,
         pharmaProducts,

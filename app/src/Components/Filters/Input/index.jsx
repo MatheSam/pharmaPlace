@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { ProductsContext } from "../../../Providers/products";
 
 const SearchInput = () => {
-  const { setInputValue } = useContext(ProductsContext);
+  const { setInputValue, inputFilterFunction } = useContext(ProductsContext);
 
   return (
     <Container>
@@ -12,7 +12,7 @@ const SearchInput = () => {
         className="input"
         placeholder="Digite aqui sua busca"
       />
-      <button type="submit" className="button">
+      <button onClick={inputFilterFunction} type="submit" className="button">
         Buscar
       </button>
     </Container>

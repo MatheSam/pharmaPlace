@@ -10,6 +10,7 @@ import { ProductsContext } from "../../../Providers/products";
 
 const SearchFilter = () => {
   const { filterWithCategory } = useContext(ProductsContext);
+
   return (
     <Container>
       <Link to={"/pharmas"}>
@@ -21,49 +22,61 @@ const SearchFilter = () => {
         </section>
       </Link>
 
-      <section onClick={() => filterWithCategory("Saúde")} className="filter">
+      <section onClick={() => filterWithCategory("saude")} className="filter">
         <div className="icon">
           <GiHealthNormal />
         </div>
         <span className="name">Saúde</span>
       </section>
 
-      <section onClick={() => filterWithCategory("Beleza")} className="filter">
+      <section onClick={() => filterWithCategory("beleza")} className="filter">
         <div className="icon">
           <GiLipstick />
         </div>
         <span className="name">Beleza</span>
       </section>
 
-      <section onClick={() => filterWithCategory("Dermocosméticos")} className="filter">
+      <section
+        onClick={() => filterWithCategory("Dermocosmeticos")}
+        className="filter"
+      >
         <div className="icon">
           <ImMakeGroup />
         </div>
         <span className="name">Cosméticos</span>
       </section>
 
-      <section onClick={() => filterWithCategory("Higiene")} className="filter">
+      <section onClick={() => filterWithCategory("higiene")} className="filter">
         <div className="icon">
           <RiAttachmentLine />
         </div>
         <span className="name">Higiene</span>
       </section>
 
-      <section onClick={() => filterWithCategory("Medicamentos")} className="filter">
+      <section
+        onClick={() => filterWithCategory("medicamentos")}
+        className="filter"
+      >
         <div className="icon">
           <GiMedicines />
         </div>
         <span className="name">Medicamentos</span>
       </section>
 
-      <section onClick={() => filterWithCategory("Infantil")} className="filter">
+      <section
+        onClick={() => filterWithCategory("infantil")}
+        className="filter"
+      >
         <div className="icon">
           <TbMoodKid />
         </div>
         <span className="name">Infantil</span>
       </section>
 
-      <section onClick={() => filterWithCategory("Conveniência")} className="filter">
+      <section
+        onClick={() => filterWithCategory("conveniencia")}
+        className="filter"
+      >
         <div className="icon">
           <MdLocalConvenienceStore />
         </div>
