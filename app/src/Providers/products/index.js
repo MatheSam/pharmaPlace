@@ -5,8 +5,7 @@ export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const [filteredInputProducts, setFilteredInputProducts] = useState([]);
-  const [filteredWhitCategory, setFilteredWhitCategory] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
   const getproducts = async () => {
@@ -16,29 +15,42 @@ export const ProductsProvider = ({ children }) => {
   };
 
   const inputFilterFunction = () => {
-    const filterInput = products.filter(({ name }) =>
-      name.toLowerCase().includes(inputValue.toLowerCase())
+    const filterInput = products.filter(
+      ({ name, category }) =>
+        name.toLowerCase().includes(inputValue.toLowerCase()) ||
+        category.toLowerCase().includes(inputValue.toLowerCase())
     );
-    setFilteredInputProducts(filterInput);
+    setFilteredProducts(filterInput);
   };
 
   const filterWithCategory = (category) => {
     const filterCategory = products.filter(
       (product) => product.category === category
     );
-    return setFilteredWhitCategory(filterCategory);
+    return setFilteredProducts(filterCategory);
   };
 
   useEffect(() => {
-    getproducts().then((resp) => setProducts(resp));
+    getproducts().then((resp) => {
+      setProducts(resp);
+      setFilteredProducts(resp);
+    });
   }, []);
+
+  useEffect(() => {
+    if (inputValue.length === 0) {
+      setFilteredProducts([...products]);
+    }
+  }, [inputValue]);
 
   return (
     <ProductsContext.Provider
       value={{
         products,
+        setProducts,
         getproducts,
         setInputValue,
+        filteredProducts,
         inputFilterFunction,
         filterWithCategory,
       }}

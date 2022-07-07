@@ -22,6 +22,7 @@ export default createGlobalStyle`
     --green: #4FC646;
     --blue: #0077B6;
     --background-banner: #3063a8;
+    --body-background: #f4f4f4;
 
 
 
@@ -30,7 +31,7 @@ export default createGlobalStyle`
 }
 
 body{
-    background-color: var(--white);
+    background-color: var(--body-background);
 }
 
 input, button, label, select{
