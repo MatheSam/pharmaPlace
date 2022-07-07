@@ -6,6 +6,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { createTheme } from "@mui/material/styles";
+import { ProductsContext } from "../../../../Providers/products";
+import { useContext } from "react";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -22,8 +24,10 @@ const theme = createTheme({
   },
 });
 
-const ModalDelete = () => {
+const ModalDelete = ({ id }) => {
   const [open, setOpen] = React.useState(false);
+
+  const { removeProduct } = useContext(ProductsContext);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -50,7 +54,7 @@ const ModalDelete = () => {
         </DialogTitle>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={handleClose}>Deletar</Button>
+          <Button onClick={() => removeProduct(id)}>Deletar</Button>
         </DialogActions>
       </Dialog>
     </div>

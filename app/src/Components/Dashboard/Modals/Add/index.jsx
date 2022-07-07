@@ -43,7 +43,7 @@ const ModalAdd = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Adicionar um novo produto</Button>
+      <Button onClick={handleOpen}>Adicionar um novo produto </Button>
       <Modal
         open={open}
         onClose={handleClose}

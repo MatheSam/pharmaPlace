@@ -1,33 +1,41 @@
-import { SectionBox, Container, BoxInfo, ContainerAll } from "./style";
-import ModalAdd from "../Modals/Add";
+import { Container, BoxInfo } from "./style";
+import { useContext } from "react";
+import { ProductsContext } from "../../../Providers/products";
+import { useEffect } from "react";
 import ModalEdit from "../Modals/Edit";
 import ModalDelete from "../Modals/Delete";
-import Header from "../../Header";
 
-const CardsDashboard = ({ product }) => {
+const CardsDashboard = () => {
+  const { products, setProducts, getProducts } = useContext(ProductsContext);
+
+  useEffect(() => {
+    getProducts().then((resp) => setProducts(resp));
+  }, []);
+
   return (
-    <>
-      <Header />
-      <ContainerAll>
-        <SectionBox>
-          <h2>Adicionar um novo produto</h2>
-          <ModalAdd />
-        </SectionBox>
-        <p>Meus produtos</p>
-        <Container>
-          <img src="" alt="" />
+    <Container>
+      {products.map(({ image, name, category, price, id }) => (
+        <div className="productsPharm" key={id}>
+          <div className="imgBox">
+            <img src={image} alt={name} />
+          </div>
           <BoxInfo>
-            <span>''</span>
-            <span>''</span>
-            <span>''</span>
+            <span>{name}</span>
+            <span>{category.toUpperCase()}</span>
+            <span>
+              {price.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>
           </BoxInfo>
           <div className="iconsBox">
             <ModalEdit />
-            <ModalDelete />
+            <ModalDelete id={id} />
           </div>
-        </Container>
-      </ContainerAll>
-    </>
+        </div>
+      ))}
+    </Container>
   );
 };
 
