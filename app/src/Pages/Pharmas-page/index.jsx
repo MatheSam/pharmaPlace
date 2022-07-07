@@ -8,9 +8,11 @@ import { useContext } from "react";
 const PharmasPage = () => {
   const { users } = useContext(UsersContext);
 
-  const isPharma = users.filter((item) => {
-    return item.isPharmacy === true;
-  });
+
+  const isPharma = users.filter((item)=>{
+    return item.isPharmacy === true
+  })
+  
 
   return (
     <>

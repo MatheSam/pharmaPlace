@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Form } from "./style";
 import api from "../../../../services/api";
 import { toast } from "react-toastify";
+import { ProductsContext } from "../../../../Providers/products";
 
 const style = {
   position: "absolute",
@@ -40,7 +41,8 @@ const ModalAdd = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  //pegar userID
+  const { products, setProducts } = React.useContext(ProductsContext);
+
   const formData = (data) => {
     const token = localStorage.getItem("@userToken");
     const id = JSON.parse(localStorage.getItem("@userData")).id;
@@ -54,7 +56,7 @@ const ModalAdd = () => {
       })
       .then((resp) => {
         toast.success("Produto criado com sucesso!");
-        console.log(resp);
+        setProducts([...products, data]);
         handleClose();
       })
       .catch((error) => {

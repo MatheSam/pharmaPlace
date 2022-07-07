@@ -21,7 +21,7 @@ const Section = ({ title, listProducts }) => {
   };
 
   setInterval(() => {
-    setIsBigger(refe.current.scrollWidth > allSection.current.offsetWidth);
+    setIsBigger(refe?.current?.scrollWidth > allSection?.current?.offsetWidth);
   }, 500);
 
   return (

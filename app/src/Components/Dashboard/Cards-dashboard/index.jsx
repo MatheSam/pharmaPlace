@@ -13,17 +13,17 @@ const CardsDashboard = () => {
   return (
     <Container>
       {pharmaProducts?.map((el) => (
-        <div className="productsPharm" key={id}>
+        <div className="productsPharm" key={el.id}>
           <div className="imgBox">
             <img src={el.image} alt={el.name} />
           </div>
           <BoxInfo>
             <span>{el.name}</span>
-            <span>{el.category.toUpperCase()}</span>
+            <span>{el.category}</span>
             <span>{formatPrice(el.price)}</span>
           </BoxInfo>
           <div className="iconsBox">
-            <ModalEdit />
+            <ModalEdit product={el} />
             <ModalDelete product={el} />
           </div>
         </div>
