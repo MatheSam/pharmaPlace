@@ -1,7 +1,7 @@
 import MiniCard from "../MiniCard";
 import { StyledSection } from "./style";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const Section = ({ title, listProducts }) => {
   const refe = useRef(null);

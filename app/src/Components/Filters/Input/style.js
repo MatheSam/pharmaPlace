@@ -7,6 +7,8 @@ export const Container = styled.div`
   justify-content: center;
 
   padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
   background-color: var(--primary);
 
@@ -44,5 +46,10 @@ export const Container = styled.div`
     font-family: var(--main-font);
     font-weight: bold;
     font-size: 18px;
+  }
+
+  @media (min-width: 768px) {
+    .input {
+    }
   }
 `;

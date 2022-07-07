@@ -6,9 +6,11 @@ export const ProductsContext = createContext();
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+
+  const [pharmaProductsList, setPharmaProductsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  const getproducts = async () => {
+  const getProducts = async () => {
     const response = await api.get("/products");
 
     return response.data;
@@ -30,8 +32,18 @@ export const ProductsProvider = ({ children }) => {
     return setFilteredProducts(filterCategory);
   };
 
+  const pharmaProducts = (pharmaId) => {
+    const filter = products.filter((product) => product.userId === pharmaId);
+    return setPharmaProductsList(filter);
+  };
+
+  const removeProduct = (id) => {
+    const newList = products.filter((product) => product.id !== id);
+    setProducts(newList);
+  };
+
   useEffect(() => {
-    getproducts().then((resp) => {
+    getProducts().then((resp) => {
       setProducts(resp);
       setFilteredProducts(resp);
     });
@@ -41,6 +53,7 @@ export const ProductsProvider = ({ children }) => {
     if (inputValue.length === 0) {
       setFilteredProducts([...products]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
   return (
@@ -48,11 +61,14 @@ export const ProductsProvider = ({ children }) => {
       value={{
         products,
         setProducts,
-        getproducts,
+        getProducts,
         setInputValue,
         filteredProducts,
         inputFilterFunction,
         filterWithCategory,
+        pharmaProducts,
+        pharmaProductsList,
+        removeProduct,
       }}
     >
       {children}

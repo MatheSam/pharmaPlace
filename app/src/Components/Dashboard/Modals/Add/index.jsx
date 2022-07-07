@@ -7,6 +7,8 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Form } from "./style";
+import api from "../../../../services/api";
+import { toast } from "react-toastify";
 
 const style = {
   position: "absolute",
@@ -39,13 +41,31 @@ const ModalAdd = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   //pegar userID
-  const formData = (data) => console.log(data);
+  const formData = (data) => {
+    const token = localStorage.getItem("@userToken");
+    const id = JSON.parse(localStorage.getItem("@userData")).id;
+    data["userId"] = id;
+
+    api
+      .post("/products", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        toast.success("Produto criado com sucesso!");
+        console.log(resp);
+        handleClose();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.response.data);
+      });
+  };
 
   return (
     <div>
-      <Button onClick={handleOpen}>
-        <GrAddCircle />
-      </Button>
+      <Button onClick={handleOpen}>Adicionar um novo produto </Button>
       <Modal
         open={open}
         onClose={handleClose}

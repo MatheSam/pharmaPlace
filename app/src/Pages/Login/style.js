@@ -39,6 +39,9 @@ export const Container = styled.div`
     }
 
     span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin: 5px 0px 20px 0px;
       color: black;
       font-family: var(--main-font);
@@ -60,40 +63,68 @@ export const Container = styled.div`
     border-radius: 2px;
   }
 
-  .cadastroLogin {
+  .options {
     display: flex;
+    height: 350px;
     flex-direction: column;
-    justify-content: space-between;
-    height: 200px;
     text-align: center;
-    gap: 30px;
+    justify-content: space-between;
 
-    h2 {
-      color: var(--white);
-    }
-
-    a {
+    .cadastroLogin {
       display: flex;
-      justify-content: space-between;
-      width: 350px;
-      align-items: center;
-      background-color: transparent;
-      border: 2px solid var(--orange);
-      color: var(--white);
-      cursor: pointer;
-      opacity: 0.6;
-      transition: all ease 0.3s;
-      padding: 10px 20px;
-      border-radius: 5px;
+      flex-grow: 2;
+      flex-direction: column;
+      height: 200px;
+      text-align: center;
+      gap: 20px;
 
-      &:hover {
-        opacity: 1;
+      h2 {
+        color: var(--white);
       }
 
-      span {
-        svg {
-          height: 30px;
-          width: 30px;
+      a {
+        display: flex;
+        justify-content: space-between;
+        width: 350px;
+        align-items: center;
+        background-color: transparent;
+        border: 2px solid var(--orange);
+        color: var(--white);
+        cursor: pointer;
+        opacity: 0.6;
+        transition: all ease 0.3s;
+        padding: 10px 20px;
+        border-radius: 5px;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        span {
+          svg {
+            height: 30px;
+            width: 30px;
+          }
+        }
+      }
+    }
+
+    .home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+
+      h2 {
+        background-color: var(--orange);
+        color: var(--white);
+        width: 150px;
+        opacity: 0.6;
+        border-radius: 4px;
+        transition: all ease 0.3s;
+
+        &:hover {
+          opacity: 1;
         }
       }
     }
