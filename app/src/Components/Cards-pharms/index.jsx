@@ -9,6 +9,7 @@ const CardsPharma = ({ pharm }) => {
       <p>{address}</p>
       <p>cnpj</p>
     </Container>
+    
   );
 };
 
