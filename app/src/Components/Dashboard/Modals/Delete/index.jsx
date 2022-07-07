@@ -24,7 +24,7 @@ const theme = createTheme({
   },
 });
 
-const ModalDelete = ({ id }) => {
+const ModalDelete = ({ product: { id } }) => {
   const [open, setOpen] = React.useState(false);
 
   const { removeProduct } = useContext(ProductsContext);
@@ -54,7 +54,14 @@ const ModalDelete = ({ id }) => {
         </DialogTitle>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={() => removeProduct(id)}>Deletar</Button>
+          <Button
+            onClick={() => {
+              removeProduct(id);
+              handleClose();
+            }}
+          >
+            Deletar
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
