@@ -22,7 +22,7 @@ const CardsDashboard = () => {
           <BoxInfo>
             <span>{name}</span>
             <span>{category.toUpperCase()}</span>
-            <span>{formatPrice(price)}</span>
+            <p>{formatPrice(price)}</p>
           </BoxInfo>
           <div className="iconsBox">
             <ModalEdit id={id} />
