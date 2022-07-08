@@ -22,20 +22,23 @@ const Dashboard = () => {
   const pharmaProducts = products.filter((prod) => prod.userId === id);
 
   return (
-    <div>
+    <>
       <Header />
+<<<<<<< HEAD
 
       <SearchInput
         set={setInputValue}
         func={() => inputFilterFunction(pharmaProducts, setFilteredProductsDash)}
       />
+=======
+      <SearchInput />
+>>>>>>> 762c9eb7a8e43708ec4ab9e945cb8e05782c90e1
       <SectionBox>
         <ModalAdd />
       </SectionBox>
       <CardsDashboard />
-
       <Footer />
-    </div>
+    </>
   );
 };
 

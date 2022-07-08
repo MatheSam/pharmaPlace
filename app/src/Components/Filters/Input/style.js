@@ -49,7 +49,5 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    .input {
-    }
   }
 `;

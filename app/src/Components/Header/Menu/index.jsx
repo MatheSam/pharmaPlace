@@ -55,7 +55,7 @@ export default function MenuPopupState() {
             Log Out
           </MenuItem>
         ) : (
-          <>
+          <div>
             <MenuItem
               onClick={() => {
                 handleNav("/login");
@@ -70,7 +70,7 @@ export default function MenuPopupState() {
             >
               Cadastro
             </MenuItem>
-          </>
+          </div>
         )}
       </Menu>
     </div>
