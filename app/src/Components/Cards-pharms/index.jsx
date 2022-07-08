@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom"
+
 import { Container } from "./style";
+import { Link } from "react-router-dom";
 
 const CardsPharma = ({ pharm }) => {
   const { name, photo, address, id } = pharm;

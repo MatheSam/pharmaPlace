@@ -19,7 +19,8 @@ export default function MenuPopupState() {
     navigate(path);
 
     if (isTrue) {
-      localStorage.setItem("@userToken", "");
+      localStorage.removeItem("@userToken");
+      localStorage.removeItem("@userData");
     }
   };
 
@@ -54,7 +55,7 @@ export default function MenuPopupState() {
             Log Out
           </MenuItem>
         ) : (
-          <>
+          <div>
             <MenuItem
               onClick={() => {
                 handleNav("/login");
@@ -69,7 +70,7 @@ export default function MenuPopupState() {
             >
               Cadastro
             </MenuItem>
-          </>
+          </div>
         )}
       </Menu>
     </div>

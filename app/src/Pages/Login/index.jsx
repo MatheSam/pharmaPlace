@@ -31,15 +31,11 @@ const Login = () => {
       .post("/login", data)
       .then((resp) => {
         toast.success("Seja bem vindo");
-        console.log(resp);
         localStorage.setItem("@userToken", resp.data.accessToken);
         localStorage.setItem("@userData", JSON.stringify(resp.data.user));
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        resp.data.user.isPharmacy ? navigate("/dashboard") : navigate("/");
       })
       .catch((error) => {
-        console.log(error);
         toast.error(error.response.data);
       });
   };

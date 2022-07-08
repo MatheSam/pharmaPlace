@@ -8,6 +8,8 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { createTheme } from "@mui/material/styles";
 import { ProductsContext } from "../../../../Providers/products";
 import { useContext } from "react";
+import api from "../../../../services/api";
+import { toast } from "react-toastify";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -24,9 +26,8 @@ const theme = createTheme({
   },
 });
 
-const ModalDelete = ({ id }) => {
+const ModalDelete = ({ product: { id } }) => {
   const [open, setOpen] = React.useState(false);
-
   const { removeProduct } = useContext(ProductsContext);
 
   const handleClickOpen = () => {
@@ -37,10 +38,27 @@ const ModalDelete = ({ id }) => {
     setOpen(false);
   };
 
+  const token = localStorage.getItem("@userToken");
+
+  const deleteProduct = () => {
+    api
+      .delete(`/products/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        toast.success("Produto deletado!");
+        handleClose();
+        removeProduct(id);
+      })
+      .catch((err) => toast.error(err.response.data));
+  };
+
   return (
     <div>
       <Button theme={theme} onClick={handleClickOpen}>
-        <FaRegTrashAlt />
+        <FaRegTrashAlt size="20px" />
       </Button>
       <Dialog
         open={open}
@@ -54,7 +72,13 @@ const ModalDelete = ({ id }) => {
         </DialogTitle>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={() => removeProduct(id)}>Deletar</Button>
+          <Button
+            onClick={() => {
+              deleteProduct();
+            }}
+          >
+            Deletar
+          </Button>
         </DialogActions>
       </Dialog>
     </div>

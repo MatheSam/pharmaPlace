@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const SectionBox = styled.div`
   width: 100%;
   height: 70px;
-  margin-bottom: 25px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  z-index: 1;
 
   background-color: var(--orange);
 
@@ -21,16 +20,12 @@ export const SectionBox = styled.div`
     opacity: calc(1);
   }
 
-  h2 {
-    color: var(--white);
-    font-size: 20px;
-  }
-
   @media (min-width: 768px) {
-    position: relative;
+    position: fixed;
     right: 0;
     bottom: 0;
-    width: 250px;
-    height: 70px;
+    width: 200px;
+    margin-right: 5px;
+    border-radius: 10px;
   }
 `;

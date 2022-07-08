@@ -12,7 +12,6 @@ export const ProductsProvider = ({ children }) => {
 
   const getProducts = async () => {
     const response = await api.get("/products");
-
     return response.data;
   };
 
@@ -32,22 +31,17 @@ export const ProductsProvider = ({ children }) => {
     return setFilteredProducts(filterCategory);
   };
 
-  const pharmaProducts = (pharmaId) => {
-    const filter = products.filter((product) => product.userId === pharmaId);
-    return setPharmaProductsList(filter);
-  };
-
-  const removeProduct = (id) => {
-    const newList = products.filter((product) => product.id !== id);
-    setProducts(newList);
-  };
-
   useEffect(() => {
     getProducts().then((resp) => {
       setProducts(resp);
       setFilteredProducts(resp);
     });
   }, []);
+
+  const removeProduct = (id) => {
+    const newList = products.filter((product) => product.id !== id);
+    setProducts(newList);
+  };
 
   useEffect(() => {
     if (inputValue.length === 0) {
@@ -66,8 +60,8 @@ export const ProductsProvider = ({ children }) => {
         filteredProducts,
         inputFilterFunction,
         filterWithCategory,
-        pharmaProducts,
         pharmaProductsList,
+        setPharmaProductsList,
         removeProduct,
       }}
     >

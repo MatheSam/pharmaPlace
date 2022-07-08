@@ -4,39 +4,80 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-color: var(--grey);
 
   .productsPharm {
     width: 350px;
-    height: 150px;
+    height: 190px;
     margin: 10px;
     margin: 20px;
     display: flex;
 
+    border-left: 2px solid var(--primary);
+
     background-color: var(--white);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+    transition: 0.5s;
+  }
+  .productsPharm:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  h2 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: var(--terciary);
   }
 
   .imgBox {
     width: 90px;
     height: 90px;
+    background-color: #c0c0c0;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 10px;
+    border-radius: 8px;
+  }
+
+  .imgBox img {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
   }
 
   .iconsBox {
-    width: 40px;
+    width: 100px;
     height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
   }
 
   @media (min-width: 768px) {
-    margin: 20px;
-    display: flex;
+    width: 100vw;
+    height: 100vh;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    .productsPharm {
+      width: 400px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -46,8 +87,14 @@ export const BoxInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 25px;
 
   span {
+    margin-top: 25px;
+  }
+
+  p {
     margin-top: 15px;
+    color: var(--redwine);
   }
 `;

@@ -2,13 +2,14 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import { GrAddCircle } from "react-icons/gr";
+import { IoMdAdd } from "react-icons/io";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Form } from "./style";
 import api from "../../../../services/api";
 import { toast } from "react-toastify";
+import { ProductsContext } from "../../../../Providers/products";
 
 const style = {
   position: "absolute",
@@ -30,7 +31,7 @@ const ModalAdd = () => {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório").min(4),
     /* price: yup.string().required("Campo obrigatório"), */
-    imagem: yup.string().required("Campo obrigatório"),
+    image: yup.string().required("Campo obrigatório"),
     category: yup.string().required("Campo obrigatório"),
   });
 
@@ -40,7 +41,8 @@ const ModalAdd = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  //pegar userID
+  const { products, setProducts } = React.useContext(ProductsContext);
+
   const formData = (data) => {
     const token = localStorage.getItem("@userToken");
     const id = JSON.parse(localStorage.getItem("@userData")).id;
@@ -54,7 +56,7 @@ const ModalAdd = () => {
       })
       .then((resp) => {
         toast.success("Produto criado com sucesso!");
-        console.log(resp);
+        setProducts([...products, data]);
         handleClose();
       })
       .catch((error) => {
@@ -65,7 +67,10 @@ const ModalAdd = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Adicionar um novo produto </Button>
+      <Button onClick={handleOpen}>
+        <IoMdAdd size="30px" /> Adicione um novo produto
+        <IoMdAdd size="30px" />
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -86,8 +91,8 @@ const ModalAdd = () => {
             <span className="error">{errors.price?.message}</span>
 
             <label htmlFor="">Imagem</label>
-            <input type="text" placeholder="Link URL" {...register("imagem")} />
-            <span className="error">{errors.imagem?.message}</span>
+            <input type="text" placeholder="Link URL" {...register("image")} />
+            <span className="error">{errors.image?.message}</span>
             <label htmlFor="">Categoria</label>
             <select name="" id="" {...register("category")}>
               <option value="">Selecione a categoria</option>
