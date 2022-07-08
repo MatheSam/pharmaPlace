@@ -13,7 +13,7 @@ const CardsDashboard = () => {
   const id = JSON.parse(localStorage.getItem("@userData")).id;
 
   const { products, filteredProductsDash } = useContext(ProductsContext);
-  
+
   const pharmaProducts = products.filter(({ userId }) => userId === id);
 
   useEffect(() => {
@@ -21,37 +21,43 @@ const CardsDashboard = () => {
   }, []);
 
   return (
-    <Container>
+    <Container data-aos="fade-left">
+      {pharmaProducts.length < 1 && (
+        <h2>
+          Você ainda não adicionou nenhum produto
+          <TbMoodSad size="20px" />
+        </h2>
+      )}
       {filteredProductsDash.length > 0
-        ? filteredProductsDash.map(({ image, name, category, price, id }) => (
-            <div className="productsPharm" key={id}>
+        ? filteredProductsDash?.map((el) => (
+            <div className="productsPharm" key={el.id}>
               <div className="imgBox">
-                <img src={image} alt={name} />
+                <img src={el.image} alt={el.name} />
               </div>
               <BoxInfo>
-                <span>{name}</span>
-                <span>{category.toUpperCase()}</span>
-                <p>{formatPrice(price)}</p>
+                <span>{el.name}</span>
+                <span>{el.category}</span>
+                <span>{formatPrice(el.price)}</span>
               </BoxInfo>
               <div className="iconsBox">
-                <ModalEdit id={id} />
-                <ModalDelete id={id} />
+                <ModalEdit product={el} />
+                <ModalDelete product={el} />
               </div>
             </div>
           ))
-        : pharmaProducts.map(({ image, name, category, price, id }) => (
-            <div className="productsPharm" key={id}>
+        : pharmaProducts?.map((el) => (
+            <div className="productsPharm" key={el.id}>
               <div className="imgBox">
-                <img src={image} alt={name} />
+                <img src={el.image} alt={el.name} />
               </div>
               <BoxInfo>
-                <span>{name}</span>
-                <span>{category.toUpperCase()}</span>
-                <p>{formatPrice(price)}</p>
+                <span>{el.name}</span>
+                <span>{el.category}</span>
+                <span>{formatPrice(el.price)}</span>
               </BoxInfo>
               <div className="iconsBox">
-                <ModalEdit id={id} />
-                <ModalDelete id={id} />
+                <ModalEdit product={el} />
+                <ModalDelete product={el} />
               </div>
             </div>
           ))}
