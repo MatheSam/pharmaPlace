@@ -14,7 +14,10 @@ export default function MenuPopupState() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const user = JSON.parse(localStorage.getItem("@userData"));
+
   const navigate = useNavigate();
+
   const handleNav = (path, isTrue = false) => {
     navigate(path);
 
@@ -47,13 +50,32 @@ export default function MenuPopupState() {
         }}
       >
         {token ? (
-          <MenuItem
-            onClick={() => {
-              handleNav("/login", true);
-            }}
-          >
-            Log Out
-          </MenuItem>
+          user.isPharmacy ? (
+            <div>
+              <MenuItem
+                onClick={() => {
+                  handleNav("/dashboard");
+                }}
+              >
+                Minha Farmácia
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleNav("/login", true);
+                }}
+              >
+                Log Out
+              </MenuItem>
+            </div>
+          ) : (
+            <MenuItem
+              onClick={() => {
+                handleNav("/login", true);
+              }}
+            >
+              Log Out
+            </MenuItem>
+          )
         ) : (
           <div>
             <MenuItem
