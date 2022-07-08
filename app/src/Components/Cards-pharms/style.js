@@ -19,11 +19,10 @@ export const Container = styled.div`
     font-size: 17px;
     margin-left: 15px;
   }
-  div {
-    display: flex;
-  }
+ 
   img {
     display: flex;
+    object-fit: contain;
    
     margin:auto;
     margin-top: 5px;
@@ -31,7 +30,7 @@ export const Container = styled.div`
    
     height: 162px;
     width: 270px;
-    background-color: #d9d9d9;
+    
   }
   p {
     margin-left: 15px;
