@@ -6,6 +6,7 @@ export const SectionBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 
   background-color: var(--orange);
 
