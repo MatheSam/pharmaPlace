@@ -26,6 +26,7 @@ export const SectionBox = styled.div`
     bottom: 0;
     width: 200px;
     margin-right: 5px;
+    margin-bottom: 5px;
     border-radius: 10px;
   }
 `;
