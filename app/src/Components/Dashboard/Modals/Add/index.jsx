@@ -68,7 +68,7 @@ const ModalAdd = () => {
   return (
     <div>
       <Button onClick={handleOpen}>
-        <IoMdAdd size="30px" /> Adicione um novo produto
+        Adicione um novo produto
         <IoMdAdd size="30px" />
       </Button>
       <Modal
