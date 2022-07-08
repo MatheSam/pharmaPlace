@@ -11,8 +11,7 @@ const PharmasPage = () => {
 
   const isPharma = users.filter((item)=>{
     return item.isPharmacy === true
-  })
-  
+  })  
 
   return (
     <>
@@ -21,13 +20,15 @@ const PharmasPage = () => {
         <div>
           <h1>FARMÁCIAS PARCEIRAS</h1>
         </div>
-        <ContainerCards>
+        <ContainerCards>  
+          
           {isPharma.map((pharm) => (
             <CardsPharma key={pharm.id} pharm={pharm} />
-          ))}
+            ))}           
+                
         </ContainerCards>
-        <Footer />
       </Container>
+        <Footer />
     </>
   );
 };
