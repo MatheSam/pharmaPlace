@@ -2,22 +2,31 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #f4f4f4;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   width: 90%;
   align-items: center;
   margin:auto; 
-  margin-top:8px;
+  margin-top:10px;
+  
+  
+ 
 @media(max-width: 428px){
   div{
     font-size: 10px;
   }
-}
-  
-
- 
-
+}  
 `;
+
+export const Titulo = styled.div`
+
+display: flex;
+justify-content: center;
+
+
+
+
+`
 export const ContainerCards = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -26,11 +35,12 @@ export const ContainerCards = styled.div`
   
    
   
-  @media (min-width: 669px) {
-    display: flex;
+  @media (max-width: 734px) {
+    display:flex;
     flex-wrap: nowrap;
-    overflow-x: auto;    
-    /* scroll-behavior: smooth; */    
+    overflow-x: auto;
+    
+     scroll-behavior: smooth; 
   }
   
   `;
