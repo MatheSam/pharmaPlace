@@ -2,25 +2,37 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #f4f4f4;
-  div {
-    display: flex;
-    justify-content: center;
-    margin-top: 31px;
-    font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  margin:auto; 
+  margin-top:8px;
+@media(max-width: 428px){
+  div{
+    font-size: 10px;
   }
+}
+  
+
+ 
+
 `;
 export const ContainerCards = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  flex-direction: row;   
   
-
-  @media (max-width: 669px) {
+  
+   
+  
+  @media (min-width: 669px) {
     display: flex;
-     flex-wrap: nowrap;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    
+    flex-wrap: nowrap;
+    overflow-x: auto;    
+    /* scroll-behavior: smooth; */    
   }
-`;
+  
+  `;
+
+  
