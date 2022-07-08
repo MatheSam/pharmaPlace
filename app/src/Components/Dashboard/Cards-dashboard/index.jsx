@@ -11,20 +11,16 @@ import { useEffect } from "react";
 
 const CardsDashboard = () => {
   const id = JSON.parse(localStorage.getItem("@userData")).id;
-<<<<<<< HEAD
 
   const { products, filteredProductsDash } = useContext(ProductsContext);
-=======
-  const { products } = useContext(ProductsContext);
+  
   const pharmaProducts = products.filter(({ userId }) => userId === id);
->>>>>>> 762c9eb7a8e43708ec4ab9e945cb8e05782c90e1
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   return (
-<<<<<<< HEAD
     <Container>
       {filteredProductsDash.length > 0
         ? filteredProductsDash.map(({ image, name, category, price, id }) => (
@@ -59,32 +55,6 @@ const CardsDashboard = () => {
               </div>
             </div>
           ))}
-=======
-    <Container data-aos="fade-left">
-      {pharmaProducts.length < 1 ? (
-        <h2>
-          Você ainda não adicionou nenhum produto
-          <TbMoodSad size="20px" />
-        </h2>
-      ) : (
-        pharmaProducts?.map((el) => (
-          <div className="productsPharm" key={el.id}>
-            <div className="imgBox">
-              <img src={el.image} alt={el.name} />
-            </div>
-            <BoxInfo>
-              <span>{el.name}</span>
-              <span>{el.category}</span>
-              <span>{formatPrice(el.price)}</span>
-            </BoxInfo>
-            <div className="iconsBox">
-              <ModalEdit product={el} />
-              <ModalDelete product={el} />
-            </div>
-          </div>
-        ))
-      )}
->>>>>>> 762c9eb7a8e43708ec4ab9e945cb8e05782c90e1
     </Container>
   );
 };
