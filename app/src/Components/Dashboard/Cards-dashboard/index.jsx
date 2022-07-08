@@ -5,14 +5,21 @@ import ModalEdit from "../Modals/Edit";
 import ModalDelete from "../Modals/Delete";
 import formatPrice from "../../../utils/formatPrice";
 import { TbMoodSad } from "react-icons/tb";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const CardsDashboard = () => {
   const id = JSON.parse(localStorage.getItem("@userData")).id;
   const { products } = useContext(ProductsContext);
   const pharmaProducts = products.filter(({ userId }) => userId === id);
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   return (
-    <Container>
+    <Container data-aos="fade-left">
       {pharmaProducts.length < 1 ? (
         <h2>
           Você ainda não adicionou nenhum produto
