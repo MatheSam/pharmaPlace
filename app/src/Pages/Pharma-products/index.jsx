@@ -12,7 +12,8 @@ import { UsersContext } from "../../Providers/users";
 const PharmaProducts = () => {
   const params = useParams();
 
-  const { products } = useContext(ProductsContext);
+  const { products, inputFilterFunction, setFilteredProductsPharma, setInputValue, filteredProductsPharma } =
+    useContext(ProductsContext);
   const { users } = useContext(UsersContext);
 
   const pharmaProductsData = products.filter(
@@ -34,20 +35,39 @@ const PharmaProducts = () => {
             )
         )}
       </Identify>
-      <SearchFilter />
-      <SearchInput />
+      <SearchFilter data={pharmaProductsData} />
+      <SearchInput
+        set={setInputValue}
+        func={() => inputFilterFunction(pharmaProductsData, setFilteredProductsPharma)}
+      />
 
       <ProductList>
         <section className="area">
-          {pharmaProductsData?.map(({ image, name, price, id }) => (
-            <ProductCard
-              key={id}
-              image={image}
-              name={name}
-              price={price}
-              id={id}
-            />
-          ))}
+          {filteredProductsPharma.length > 0
+            ? filteredProductsPharma.map(
+                ({ image, name, price, id, userId }) =>
+                  userId === +params.id && (
+                    <ProductCard
+                      key={id}
+                      image={image}
+                      name={name}
+                      price={price}
+                      id={id}
+                    />
+                  )
+              )
+            : pharmaProductsData.map(
+                ({ image, name, price, id, userId }) =>
+                  userId === +params.id && (
+                    <ProductCard
+                      key={id}
+                      image={image}
+                      name={name}
+                      price={price}
+                      id={id}
+                    />
+                  )
+              )}
         </section>
       </ProductList>
 

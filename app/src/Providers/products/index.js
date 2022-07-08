@@ -6,6 +6,8 @@ export const ProductsContext = createContext();
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProductsPharma, setFilteredProductsPharma ] = useState([]);
+  const [filteredProductsDash, setFilteredProductsDash] = useState([]);
 
   const [pharmaProductsList, setPharmaProductsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -16,20 +18,20 @@ export const ProductsProvider = ({ children }) => {
     return response.data;
   };
 
-  const inputFilterFunction = () => {
-    const filterInput = products.filter(
+  const inputFilterFunction = (data, set) => {
+    const filterInput = data?.filter(
       ({ name, category }) =>
         name.toLowerCase().includes(inputValue.toLowerCase()) ||
         category.toLowerCase().includes(inputValue.toLowerCase())
     );
-    setFilteredProducts(filterInput);
+    set(filterInput);
   };
 
-  const filterWithCategory = (category) => {
-    const filterCategory = products.filter(
+  const filterWithCategory = (category, data) => {
+    const filterCategory = data?.filter(
       (product) => product.category === category
     );
-    return setFilteredProducts(filterCategory);
+    setFilteredProducts(filterCategory);
   };
 
   const removeProduct = (id) => {
@@ -59,11 +61,16 @@ export const ProductsProvider = ({ children }) => {
         getProducts,
         setInputValue,
         filteredProducts,
+        filteredProductsPharma,
         inputFilterFunction,
         filterWithCategory,
         pharmaProductsList,
         setPharmaProductsList,
+        setFilteredProductsPharma,
+        setFilteredProducts,
         removeProduct,
+        filteredProductsDash, 
+        setFilteredProductsDash
       }}
     >
       {children}

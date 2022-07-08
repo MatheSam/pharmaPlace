@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ProductsContext } from "../../../Providers/products";
 
-const SearchFilter = () => {
+const SearchFilter = ({data}) => {
   const { filterWithCategory } = useContext(ProductsContext);
 
   return (
@@ -22,14 +22,14 @@ const SearchFilter = () => {
         </section>
       </Link>
 
-      <section onClick={() => filterWithCategory("saude")} className="filter">
+      <section onClick={() => filterWithCategory("saude", data)} className="filter">
         <div className="icon">
           <GiHealthNormal />
         </div>
         <span className="name">Saúde</span>
       </section>
 
-      <section onClick={() => filterWithCategory("beleza")} className="filter">
+      <section onClick={() => filterWithCategory("beleza", data)} className="filter">
         <div className="icon">
           <GiLipstick />
         </div>
@@ -37,7 +37,7 @@ const SearchFilter = () => {
       </section>
 
       <section
-        onClick={() => filterWithCategory("Dermocosmeticos")}
+        onClick={() => filterWithCategory("Dermocosmeticos", data)}
         className="filter"
       >
         <div className="icon">
@@ -46,7 +46,7 @@ const SearchFilter = () => {
         <span className="name">Cosméticos</span>
       </section>
 
-      <section onClick={() => filterWithCategory("higiene")} className="filter">
+      <section onClick={() => filterWithCategory("higiene", data)} className="filter">
         <div className="icon">
           <RiAttachmentLine />
         </div>
@@ -54,7 +54,7 @@ const SearchFilter = () => {
       </section>
 
       <section
-        onClick={() => filterWithCategory("medicamentos")}
+        onClick={() => filterWithCategory("medicamentos", data)}
         className="filter"
       >
         <div className="icon">
@@ -64,7 +64,7 @@ const SearchFilter = () => {
       </section>
 
       <section
-        onClick={() => filterWithCategory("infantil")}
+        onClick={() => filterWithCategory("infantil", data)}
         className="filter"
       >
         <div className="icon">
@@ -74,7 +74,7 @@ const SearchFilter = () => {
       </section>
 
       <section
-        onClick={() => filterWithCategory("conveniencia")}
+        onClick={() => filterWithCategory("conveniencia", data)}
         className="filter"
       >
         <div className="icon">
