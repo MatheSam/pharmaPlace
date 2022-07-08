@@ -1,9 +1,10 @@
 import { Container, BoxInfo } from "./style";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { ProductsContext } from "../../../Providers/products";
 import ModalEdit from "../Modals/Edit";
 import ModalDelete from "../Modals/Delete";
 import formatPrice from "../../../utils/formatPrice";
+import { TbMoodSad } from "react-icons/tb";
 
 const CardsDashboard = () => {
   const id = JSON.parse(localStorage.getItem("@userData")).id;
@@ -12,22 +13,29 @@ const CardsDashboard = () => {
 
   return (
     <Container>
-      {pharmaProducts?.map((el) => (
-        <div className="productsPharm" key={el.id}>
-          <div className="imgBox">
-            <img src={el.image} alt={el.name} />
+      {pharmaProducts.length < 1 ? (
+        <h2>
+          Você ainda não adicionou nenhum produto
+          <TbMoodSad size="20px" />
+        </h2>
+      ) : (
+        pharmaProducts?.map((el) => (
+          <div className="productsPharm" key={el.id}>
+            <div className="imgBox">
+              <img src={el.image} alt={el.name} />
+            </div>
+            <BoxInfo>
+              <span>{el.name}</span>
+              <span>{el.category}</span>
+              <span>{formatPrice(el.price)}</span>
+            </BoxInfo>
+            <div className="iconsBox">
+              <ModalEdit product={el} />
+              <ModalDelete product={el} />
+            </div>
           </div>
-          <BoxInfo>
-            <span>{el.name}</span>
-            <span>{el.category}</span>
-            <span>{formatPrice(el.price)}</span>
-          </BoxInfo>
-          <div className="iconsBox">
-            <ModalEdit product={el} />
-            <ModalDelete product={el} />
-          </div>
-        </div>
-      ))}
+        ))
+      )}
     </Container>
   );
 };

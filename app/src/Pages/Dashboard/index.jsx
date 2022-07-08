@@ -9,17 +9,15 @@ import Footer from "../../Components/Footer";
 
 const Dashboard = () => {
   return (
-    <div>
+    <>
       <Header />
-
       <SearchInput />
       <SectionBox>
         <ModalAdd />
       </SectionBox>
       <CardsDashboard />
-
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import { GrAddCircle } from "react-icons/gr";
+import { IoMdAdd } from "react-icons/io";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -67,7 +67,10 @@ const ModalAdd = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Adicionar um novo produto </Button>
+      <Button onClick={handleOpen}>
+        <IoMdAdd size="30px" /> Adicione um novo produto
+        <IoMdAdd size="30px" />
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
