@@ -13,4 +13,13 @@ export const ContainerCards = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  @media (max-width: 669px) {
+    display: flex;
+    /*  flex-wrap: nowrap; */
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    
+  }
 `;
