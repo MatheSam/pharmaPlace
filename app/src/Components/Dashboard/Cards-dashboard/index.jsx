@@ -11,14 +11,55 @@ import { useEffect } from "react";
 
 const CardsDashboard = () => {
   const id = JSON.parse(localStorage.getItem("@userData")).id;
+<<<<<<< HEAD
+
+  const { products, filteredProductsDash } = useContext(ProductsContext);
+=======
   const { products } = useContext(ProductsContext);
   const pharmaProducts = products.filter(({ userId }) => userId === id);
+>>>>>>> 762c9eb7a8e43708ec4ab9e945cb8e05782c90e1
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
   return (
+<<<<<<< HEAD
+    <Container>
+      {filteredProductsDash.length > 0
+        ? filteredProductsDash.map(({ image, name, category, price, id }) => (
+            <div className="productsPharm" key={id}>
+              <div className="imgBox">
+                <img src={image} alt={name} />
+              </div>
+              <BoxInfo>
+                <span>{name}</span>
+                <span>{category.toUpperCase()}</span>
+                <p>{formatPrice(price)}</p>
+              </BoxInfo>
+              <div className="iconsBox">
+                <ModalEdit id={id} />
+                <ModalDelete id={id} />
+              </div>
+            </div>
+          ))
+        : pharmaProducts.map(({ image, name, category, price, id }) => (
+            <div className="productsPharm" key={id}>
+              <div className="imgBox">
+                <img src={image} alt={name} />
+              </div>
+              <BoxInfo>
+                <span>{name}</span>
+                <span>{category.toUpperCase()}</span>
+                <p>{formatPrice(price)}</p>
+              </BoxInfo>
+              <div className="iconsBox">
+                <ModalEdit id={id} />
+                <ModalDelete id={id} />
+              </div>
+            </div>
+          ))}
+=======
     <Container data-aos="fade-left">
       {pharmaProducts.length < 1 ? (
         <h2>
@@ -43,6 +84,7 @@ const CardsDashboard = () => {
           </div>
         ))
       )}
+>>>>>>> 762c9eb7a8e43708ec4ab9e945cb8e05782c90e1
     </Container>
   );
 };
