@@ -16,7 +16,7 @@ const Home = () => {
       <Header />
       <BannerArea />
       <section>
-        <SearchFilter data={products} />
+        <SearchFilter data={products} set={setFilteredProducts}/>
       </section>
       <SearchInput
         set={setInputValue}
