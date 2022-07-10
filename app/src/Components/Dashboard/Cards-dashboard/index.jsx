@@ -11,7 +11,9 @@ import { useEffect } from "react";
 
 const CardsDashboard = () => {
   const id = JSON.parse(localStorage.getItem("@userData")).id;
-  const { products } = useContext(ProductsContext);
+
+  const { products, filteredProductsDash } = useContext(ProductsContext);
+
   const pharmaProducts = products.filter(({ userId }) => userId === id);
 
   useEffect(() => {
@@ -20,29 +22,45 @@ const CardsDashboard = () => {
 
   return (
     <Container data-aos="fade-left">
-      {pharmaProducts.length < 1 ? (
+      {pharmaProducts.length < 1 && (
         <h2>
           Você ainda não adicionou nenhum produto
           <TbMoodSad size="20px" />
         </h2>
-      ) : (
-        pharmaProducts?.map((el) => (
-          <div className="productsPharm" key={el.id}>
-            <div className="imgBox">
-              <img src={el.image} alt={el.name} />
-            </div>
-            <BoxInfo>
-              <span>{el.name}</span>
-              <span>{el.category}</span>
-              <span>{formatPrice(el.price)}</span>
-            </BoxInfo>
-            <div className="iconsBox">
-              <ModalEdit product={el} />
-              <ModalDelete product={el} />
-            </div>
-          </div>
-        ))
       )}
+      {filteredProductsDash.length > 0
+        ? filteredProductsDash?.map((el) => (
+            <div className="productsPharm" key={el.id}>
+              <div className="imgBox">
+                <img src={el.image} alt={el.name} />
+              </div>
+              <BoxInfo>
+                <span>{el.name}</span>
+                <span>{el.category}</span>
+                <span>{formatPrice(el.price)}</span>
+              </BoxInfo>
+              <div className="iconsBox">
+                <ModalEdit product={el} />
+                <ModalDelete product={el} />
+              </div>
+            </div>
+          ))
+        : pharmaProducts?.map((el) => (
+            <div className="productsPharm" key={el.id}>
+              <div className="imgBox">
+                <img src={el.image} alt={el.name} />
+              </div>
+              <BoxInfo>
+                <span>{el.name}</span>
+                <span>{el.category}</span>
+                <span>{formatPrice(el.price)}</span>
+              </BoxInfo>
+              <div className="iconsBox">
+                <ModalEdit product={el} />
+                <ModalDelete product={el} />
+              </div>
+            </div>
+          ))}
     </Container>
   );
 };

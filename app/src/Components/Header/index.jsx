@@ -23,12 +23,14 @@ const Header = () => {
           </figure>
         </Link>
         <div className="buttons">
-          <button className="btnUser">
+          <div className="btnUser">
             <MenuPopupState />
-          </button>
-          <button onClick={handleOpen} className="btnCart">
+
+            <button onClick={handleOpen} className="btnCart"></button>
+          </div>
+          <div className="btnCart">
             <CustomizedBadges />
-          </button>
+          </div>
         </div>
       </div>
     </ThemeHeader>
