@@ -20,7 +20,6 @@ const CardsDashboard = () => {
     Aos.init({ duration: 2000 });
   }, []);
 
-
   return (
     <Container data-aos="fade-left">
       {pharmaProducts.length < 1 && (

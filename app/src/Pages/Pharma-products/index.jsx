@@ -12,8 +12,13 @@ import { UsersContext } from "../../Providers/users";
 const PharmaProducts = () => {
   const params = useParams();
 
-  const { products, inputFilterFunction, setFilteredProductsPharma, setInputValue, filteredProductsPharma } =
-    useContext(ProductsContext);
+  const {
+    products,
+    inputFilterFunction,
+    setFilteredProductsPharma,
+    setInputValue,
+    filteredProductsPharma,
+  } = useContext(ProductsContext);
   const { users } = useContext(UsersContext);
 
   const pharmaProductsData = products.filter(
@@ -35,10 +40,12 @@ const PharmaProducts = () => {
             )
         )}
       </Identify>
-      <SearchFilter data={pharmaProductsData} />
+      <SearchFilter data={pharmaProductsData} set={setFilteredProductsPharma} />
       <SearchInput
         set={setInputValue}
-        func={() => inputFilterFunction(pharmaProductsData, setFilteredProductsPharma)}
+        func={() =>
+          inputFilterFunction(pharmaProductsData, setFilteredProductsPharma)
+        }
       />
 
       <ProductList>
