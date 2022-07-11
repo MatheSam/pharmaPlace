@@ -14,6 +14,8 @@ export default function MenuPopupState() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const token = localStorage.getItem("@userToken");
   const user = JSON.parse(localStorage.getItem("@userData"));
 
   const navigate = useNavigate();
@@ -27,8 +29,6 @@ export default function MenuPopupState() {
     }
   };
 
-  const token = localStorage.getItem("@userToken");
-
   return (
     <div>
       <Button
@@ -38,7 +38,18 @@ export default function MenuPopupState() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <FaUserCircle />
+        {user.photo ? (
+          <img
+            style={{
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%",
+            }}
+            src={user.photo}
+          />
+        ) : (
+          <FaUserCircle />
+        )}
       </Button>
       <Menu
         id="basic-menu"

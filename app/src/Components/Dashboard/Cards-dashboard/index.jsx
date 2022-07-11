@@ -20,40 +20,6 @@ const CardsDashboard = () => {
     Aos.init({ duration: 2000 });
   }, []);
 
-<<<<<<< HEAD
-  return (
-    <Container data-aos="fade-left">
-=======
-  /*
-   <Container data-aos="fade-left">
->>>>>>> a79e5c76d495611eb22cc84ee2e370a52b65813d
-      {pharmaProducts.length < 1 ? (
-        <h2>
-          Você ainda não adicionou nenhum produto
-          <TbMoodSad size="20px" />
-        </h2>
-      ) : (
-        pharmaProducts?.map((el) => (
-          <div className="productsPharm" key={el.id}>
-            <div className="imgBox">
-              <img src={el.image} alt={el.name} />
-            </div>
-            <BoxInfo>
-              <span>{el.name}</span>
-              <span>{el.category}</span>
-              <span>{formatPrice(el.price)}</span>
-            </BoxInfo>
-            <div className="iconsBox">
-              <ModalEdit product={el} />
-              <ModalDelete product={el} />
-            </div>
-          </div>
-        ))
-      )}
-<<<<<<< HEAD
-=======
-  */
-
   return (
     <Container data-aos="fade-left">
       {pharmaProducts.length < 1 && (
@@ -95,7 +61,6 @@ const CardsDashboard = () => {
               </div>
             </div>
           ))}
->>>>>>> a79e5c76d495611eb22cc84ee2e370a52b65813d
     </Container>
   );
 };
