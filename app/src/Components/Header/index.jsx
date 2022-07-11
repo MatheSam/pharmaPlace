@@ -25,11 +25,11 @@ const Header = () => {
         <div className="buttons">
           <div className="btnUser">
             <MenuPopupState />
-
-            <button onClick={handleOpen} className="btnCart"></button>
           </div>
           <div className="btnCart">
-            <CustomizedBadges />
+            <button onClick={handleOpen} className="btnCart">
+              <CustomizedBadges />
+            </button>
           </div>
         </div>
       </div>
