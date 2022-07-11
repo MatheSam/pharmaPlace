@@ -49,12 +49,20 @@ export const Titulo = styled.div`
 export const ContainerCards = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
 
+  flex-direction: row;   
+  
   @media (max-width: 734px) {
-    display: flex;
+    display:flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
+    justify-content: flex-start;    
+     scroll-behavior: smooth; 
+  }
+  
+  `;
+
 
     scroll-behavior: smooth;
   }
