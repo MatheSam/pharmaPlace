@@ -9,12 +9,15 @@ export const ThemeHeader = styled.header`
   background-color: #ffffff;
   z-index: 99;
 
-  height: 80px;
+  background-color: var(--white);
+
+  height: 100px;
+
   padding: 0 8vw;
 
-  box-shadow: -1px 9px 27px -13px rgba(0, 0, 0, 1);
-  -webkit-box-shadow: -1px 9px 27px -13px rgba(0, 0, 0, 1);
-  -moz-box-shadow: -1px 9px 27px -13px rgba(0, 0, 0, 1);
+  box-shadow: 1px 6px 9px -1px rgba(82, 80, 80, 0.55);
+  -webkit-box-shadow: 1px 6px 9px -1px rgba(82, 80, 80, 0.55);
+  -moz-box-shadow: 1px 6px 9px -1px rgba(82, 80, 80, 0.55);
 
   .header {
     display: flex;
@@ -27,17 +30,17 @@ export const ThemeHeader = styled.header`
     }
 
     .logo {
-      width: 230px;
-      height: 69px;
+      width: 200px;
+      height: 90px;
       img {
         width: 100%;
-        height: 69px;
+        height: 90px;
       }
       @media (max-width: 500px) {
         width: 169px;
         height: 60px;
         img {
-          height: 60px;
+          height: 80px;
         }
       }
     }

@@ -6,6 +6,7 @@ export const StyledCart = styled.section`
   color: var(--white);
   display: flex;
   flex-direction: column;
+  
   .head {
     display: flex;
     height: 70px;
