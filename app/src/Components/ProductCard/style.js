@@ -3,16 +3,19 @@ import styled from "styled-components";
 export const StyledProductCard = styled.div`
   width: 100%;
   height: 350px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 18px 1px rgba(186,185,185,0.75);
+  -webkit-box-shadow: 0px 0px 18px 1px rgba(186,185,185,0.75);
+  -moz-box-shadow: 0px 0px 18px 1px rgba(186,185,185,0.75);
   border-radius: 10px;
   background-color: var(--white);
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
 
   .imageArea {
     width: 100%;
-    height: 65%;
-    margin-bottom: 5px;
+    height: 230px;
+    margin-top: 15px;
     & img {
       width: 100%;
       height: 100%;
@@ -21,8 +24,6 @@ export const StyledProductCard = styled.div`
   }
 
   .infoArea {
-    flex: 1;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,24 +34,36 @@ export const StyledProductCard = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      font-family: var(--main-font);
+      font-family: var(--second-font);
       & p {
-        font-weight: 400;
-        font-size: 15px;
+        font-weight: 500;
+        color: var(--grey2);
+        font-size: 16px;
+
+        max-width: 280px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       & span {
         font-weight: 500;
-        font-size: 14px;
+        color: var(--primary);
+        font-size: 16px;
       }
     }
 
     button {
       background-color: var(--green);
+      color: var(--white);
+
       font-family: var(--second-font);
       font-weight: 600;
-      color: var(--white);
-      flex: 1;
+      font-size: 18px;
+
+      flex: 0.5;
+
+      border-radius: 0px 0px 10px 10px;
     }
   }
 `;

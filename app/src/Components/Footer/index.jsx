@@ -66,7 +66,7 @@ const Footer = () => {
         </li>
       </ul>
       <span>
-        <RiCopyrightFill /> Copyright direitos reservados. 2022.
+        Todos os direitos reservados, 2022. Copyright <RiCopyrightFill />
       </span>
     </ThemeFooter>
   );
