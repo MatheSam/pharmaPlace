@@ -10,6 +10,9 @@ export const Container = styled.div`
   margin-top:10px;
   
   
+  
+  
+  
  
 @media(max-width: 428px){
   div{
@@ -30,16 +33,16 @@ justify-content: center;
 export const ContainerCards = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;   
-  
-  
+  flex-direction: row;  
+  justify-content: space-evenly;
    
   
   @media (max-width: 734px) {
     display:flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
-    
+    justify-content: flex-start;    
      scroll-behavior: smooth; 
   }
   
