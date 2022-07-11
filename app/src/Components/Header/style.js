@@ -5,14 +5,16 @@ export const ThemeHeader = styled.header`
   align-items: center;
   justify-content: center;
   width: 100vw;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: 99;
 
-  height: 120px;
-
+  height: 80px;
   padding: 0 8vw;
 
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 9px 27px -13px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: -1px 9px 27px -13px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -1px 9px 27px -13px rgba(0, 0, 0, 1);
 
   .header {
     display: flex;

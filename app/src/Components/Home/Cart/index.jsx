@@ -11,10 +11,16 @@ const Cart = () => {
   const { cart, state, toggleDrawer } = React.useContext(CartContext);
 
   const amountTotal = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const amountPrice = cart.reduce((acc, item) => {
+    const price = +item.price;
+    return acc + price * item.quantity;
+  }, 0);
+
+  console.log(cart);
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 500 }}
+      sx={{ width: anchor === "rigth" || anchor === "bottom" ? "auto" : 380 }}
       role="presentation"
     >
       <StyledCart>
@@ -25,7 +31,7 @@ const Cart = () => {
           >
             <AiOutlineCloseCircle />
           </span>
-          <h2>Carrinho de compras</h2>
+          <h2 style={{ fontSize: "1.1rem" }}>Carrinho de compras</h2>
           <span className="image">
             <img src={cartImage} alt="" />
             <span>{amountTotal}</span>
@@ -44,6 +50,10 @@ const Cart = () => {
           ))}
         </div>
         <div className="cartInfo">
+          <div className="valorTotal">
+            <p>Valor Total: </p>
+            <p>R$ {amountPrice.toFixed(2).replace(".", ",")}</p>
+          </div>
           <button className="finalizar">FINALIZAR COMPRA</button>
           <button
             className="adicionar"

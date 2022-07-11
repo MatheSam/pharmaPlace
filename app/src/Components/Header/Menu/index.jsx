@@ -37,7 +37,7 @@ export default function MenuPopupState() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        {user.photo ? (
+        {user?.photo ? (
           <img
             style={{
               width: "60px",

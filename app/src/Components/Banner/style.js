@@ -5,13 +5,13 @@ import Banner from "./../../Assets/banner.png";
 export const Img = styled.img`
   width: 1270px;
   height: 400px;
-
+  margin-top: 200px;
   background-image: url(${Banner});
   border-radius: 10px;
 
   @media (max-width: 500px) {
     height: 350px;
-    width: 400px;
+    width: 90%;
     background-image: url(${BannerMobile});
     border-radius: 1px;
     transition: 400ms;

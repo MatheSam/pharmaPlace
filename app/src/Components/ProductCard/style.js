@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledProductCard = styled.div`
-  width: 100%;
+  width: 200px;
   height: 350px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -52,5 +52,22 @@ export const StyledProductCard = styled.div`
       color: var(--white);
       flex: 1;
     }
+  }
+
+  @media (max-width: 600px) {
+    width: 180px;
+    height: 280px;
+  }
+
+  @media (max-width: 510px) {
+    width: 150px;
+  }
+
+  @media (max-width: 435px) {
+    width: 130px;
+  }
+
+  @media (max-width: 340px) {
+    width: 100%;
   }
 `;
