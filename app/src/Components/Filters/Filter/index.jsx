@@ -4,12 +4,14 @@ import { GiMedicines, GiHealthNormal, GiLipstick } from "react-icons/gi";
 import { ImMakeGroup } from "react-icons/im";
 import { TbMoodKid } from "react-icons/tb";
 import { MdLocalConvenienceStore } from "react-icons/md";
+import { HiTemplate } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ProductsContext } from "../../../Providers/products";
 
-const SearchFilter = ({data}) => {
-  const { filterWithCategory } = useContext(ProductsContext);
+const SearchFilter = ({ data, set }) => {
+  const { filterWithCategory, filterAllWhiteCategory } =
+    useContext(ProductsContext);
 
   return (
     <Container>
@@ -22,14 +24,30 @@ const SearchFilter = ({data}) => {
         </section>
       </Link>
 
-      <section onClick={() => filterWithCategory("saude", data)} className="filter">
+      <section
+        onClick={() => filterAllWhiteCategory(data, set)}
+        className="filter"
+      >
+        <div className="icon">
+          <HiTemplate />
+        </div>
+        <span className="name">Todos</span>
+      </section>
+
+      <section
+        onClick={() => filterWithCategory("saude", data, set)}
+        className="filter"
+      >
         <div className="icon">
           <GiHealthNormal />
         </div>
         <span className="name">Saúde</span>
       </section>
 
-      <section onClick={() => filterWithCategory("beleza", data)} className="filter">
+      <section
+        onClick={() => filterWithCategory("beleza", data, set)}
+        className="filter"
+      >
         <div className="icon">
           <GiLipstick />
         </div>
@@ -37,7 +55,7 @@ const SearchFilter = ({data}) => {
       </section>
 
       <section
-        onClick={() => filterWithCategory("Dermocosmeticos", data)}
+        onClick={() => filterWithCategory("Dermocosmeticos", data, set)}
         className="filter"
       >
         <div className="icon">
@@ -46,7 +64,10 @@ const SearchFilter = ({data}) => {
         <span className="name">Cosméticos</span>
       </section>
 
-      <section onClick={() => filterWithCategory("higiene", data)} className="filter">
+      <section
+        onClick={() => filterWithCategory("higiene", data, set)}
+        className="filter"
+      >
         <div className="icon">
           <RiAttachmentLine />
         </div>
@@ -54,7 +75,7 @@ const SearchFilter = ({data}) => {
       </section>
 
       <section
-        onClick={() => filterWithCategory("medicamentos", data)}
+        onClick={() => filterWithCategory("medicamentos", data, set)}
         className="filter"
       >
         <div className="icon">
@@ -64,7 +85,7 @@ const SearchFilter = ({data}) => {
       </section>
 
       <section
-        onClick={() => filterWithCategory("infantil", data)}
+        onClick={() => filterWithCategory("infantil", data, set)}
         className="filter"
       >
         <div className="icon">
@@ -74,7 +95,7 @@ const SearchFilter = ({data}) => {
       </section>
 
       <section
-        onClick={() => filterWithCategory("conveniencia", data)}
+        onClick={() => filterWithCategory("conveniencia", data, set)}
         className="filter"
       >
         <div className="icon">
