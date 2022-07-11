@@ -6,9 +6,8 @@ export const ProductsContext = createContext();
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [filteredProductsPharma, setFilteredProductsPharma ] = useState([]);
+  const [filteredProductsPharma, setFilteredProductsPharma] = useState([]);
   const [filteredProductsDash, setFilteredProductsDash] = useState([]);
-
   const [pharmaProductsList, setPharmaProductsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
@@ -26,11 +25,16 @@ export const ProductsProvider = ({ children }) => {
     set(filterInput);
   };
 
-  const filterWithCategory = (category, data) => {
+  const filterWithCategory = (category, data, set) => {
     const filterCategory = data?.filter(
       (product) => product.category === category
     );
-    setFilteredProducts(filterCategory);
+    set(filterCategory);
+  };
+
+  const filterAllWhiteCategory = (data, set) => {
+    const filterAll = data?.map((p) => p);
+    set(filterAll);
   };
 
   useEffect(() => {
@@ -68,8 +72,9 @@ export const ProductsProvider = ({ children }) => {
         setFilteredProductsPharma,
         setFilteredProducts,
         removeProduct,
-        filteredProductsDash, 
-        setFilteredProductsDash
+        filteredProductsDash,
+        setFilteredProductsDash,
+        filterAllWhiteCategory,
       }}
     >
       {children}

@@ -8,12 +8,18 @@ import { ProductsContext } from "../../Providers/products";
 import { useContext } from "react";
 import ProductCard from "../../Components/ProductCard";
 import { UsersContext } from "../../Providers/users";
+import Cart from "../../Components/Home/Cart";
 
 const PharmaProducts = () => {
   const params = useParams();
 
-  const { products, inputFilterFunction, setFilteredProductsPharma, setInputValue, filteredProductsPharma } =
-    useContext(ProductsContext);
+  const {
+    products,
+    inputFilterFunction,
+    setFilteredProductsPharma,
+    setInputValue,
+    filteredProductsPharma,
+  } = useContext(ProductsContext);
   const { users } = useContext(UsersContext);
 
   const pharmaProductsData = products.filter(
@@ -22,6 +28,7 @@ const PharmaProducts = () => {
 
   return (
     <>
+      <Cart />
       <Header />
       <Identify>
         {users.map(
@@ -35,10 +42,12 @@ const PharmaProducts = () => {
             )
         )}
       </Identify>
-      <SearchFilter data={pharmaProductsData} />
+      <SearchFilter data={pharmaProductsData} set={setFilteredProductsPharma} />
       <SearchInput
         set={setInputValue}
-        func={() => inputFilterFunction(pharmaProductsData, setFilteredProductsPharma)}
+        func={() =>
+          inputFilterFunction(pharmaProductsData, setFilteredProductsPharma)
+        }
       />
 
       <ProductList>

@@ -15,6 +15,7 @@ const CardsDashboard = () => {
   const { products, filteredProductsDash } = useContext(ProductsContext);
 
   const pharmaProducts = products.filter(({ userId }) => userId === id);
+  console.log(pharmaProducts);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -22,14 +23,14 @@ const CardsDashboard = () => {
 
   return (
     <Container data-aos="fade-left">
-      {pharmaProducts.length < 1 && (
+      {pharmaProducts?.length < 1 && (
         <h2>
           Você ainda não adicionou nenhum produto
           <TbMoodSad size="20px" />
         </h2>
       )}
       {filteredProductsDash.length > 0
-        ? filteredProductsDash?.map((el) => (
+        ? filteredProductsDash.map((el) => (
             <div className="productsPharm" key={el.id}>
               <div className="imgBox">
                 <img src={el.image} alt={el.name} />

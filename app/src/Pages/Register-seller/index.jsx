@@ -48,6 +48,7 @@ const RegisterSeller = () => {
 
   const formData = (data) => {
     data["isPharmacy"] = true;
+    console.log(data);
     api
       .post("/users/register", data)
       .then((resp) => {

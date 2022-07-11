@@ -1,10 +1,13 @@
 import { UsersProvider } from "./users";
 import { ProductsProvider } from "./products";
+import { CartProvider } from "./Cart";
 
 const Providers = ({ children }) => {
   return (
     <UsersProvider>
-      <ProductsProvider>{children}</ProductsProvider>
+      <ProductsProvider>
+        <CartProvider>{children}</CartProvider>
+      </ProductsProvider>
     </UsersProvider>
   );
 };
