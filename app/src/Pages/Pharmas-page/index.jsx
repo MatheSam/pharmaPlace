@@ -1,7 +1,7 @@
 import CardsPharma from "../../Components/Cards-pharms";
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
-import { Container, ContainerCards } from "./style";
+import { Container, ContainerCards, Titulo } from "./style";
 import { UsersContext } from "../../Providers/users";
 import { useContext } from "react";
 
@@ -17,9 +17,9 @@ const PharmasPage = () => {
     <>
       <Header />
       <Container>
-        <div>
+        <Titulo >
           <h1>FARMÁCIAS PARCEIRAS</h1>
-        </div>
+        </Titulo>
         <ContainerCards>  
           
           {isPharma.map((pharm) => (
