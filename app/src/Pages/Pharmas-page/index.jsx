@@ -4,6 +4,7 @@ import Header from "../../Components/Header";
 import { Container, ContainerCards, Titulo } from "./style";
 import { UsersContext } from "../../Providers/users";
 import { useContext } from "react";
+import { FaRegHandshake } from "react-icons/fa"
 
 const PharmasPage = () => {
   const { users } = useContext(UsersContext);
@@ -18,7 +19,7 @@ const PharmasPage = () => {
       <Header />
       <Container>
         <Titulo >
-          <h1>FARMÁCIAS PARCEIRAS</h1>
+          <h1 className="title">FARMÁCIAS PARCEIRAS <FaRegHandshake/></h1>
         </Titulo>
         <ContainerCards>  
           
