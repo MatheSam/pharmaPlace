@@ -24,8 +24,7 @@ export default function MenuPopupState() {
     navigate(path);
 
     if (isTrue) {
-      localStorage.removeItem("@userToken");
-      localStorage.removeItem("@userData");
+      localStorage.clear();
     }
   };
 
