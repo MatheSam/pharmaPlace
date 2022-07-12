@@ -18,8 +18,7 @@ const Header = () => {
   window.onscroll = function () {
     const header = document.querySelector("#header");
     var sticky = header.offsetTop;
-    console.log(header);
-    if (window.pageYOffset > sticky) {
+    if (window.pageYOffset > 100) {
       header.classList.add("sticky");
     } else {
       header.classList.remove("sticky");

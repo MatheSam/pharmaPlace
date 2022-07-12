@@ -6,6 +6,7 @@ import cartImage from "../../../Assets/cart-blue.svg";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import CartItem from "../../CartItem";
 import { CartContext } from "../../../Providers/Cart";
+import Payment from "./ModalPagamento";
 
 const Cart = () => {
   const { cart, state, toggleDrawer } = React.useContext(CartContext);
@@ -54,7 +55,9 @@ const Cart = () => {
             <p>Valor Total: </p>
             <p>R$ {amountPrice.toFixed(2).replace(".", ",")}</p>
           </div>
-          <button className="finalizar">FINALIZAR COMPRA</button>
+          <div className="finalizar">
+            <Payment />
+          </div>
           <button
             className="adicionar"
             onClick={(e) => toggleDrawer("right", false, e)}
