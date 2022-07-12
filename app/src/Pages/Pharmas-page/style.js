@@ -7,7 +7,6 @@ export const Container = styled.div`
   width: 90%;
   align-items: center;
   margin: auto;
-  margin-top: 10px;
 
   @media (max-width: 428px) {
     div {
@@ -49,7 +48,8 @@ export const Titulo = styled.div`
 export const ContainerCards = styled.div`
   display: flex;
   flex-wrap: wrap;
-
+  justify-content: center;
+  margin-top: 50px;
   flex-direction: row;
 
   @media (max-width: 734px) {

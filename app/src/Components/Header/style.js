@@ -5,14 +5,12 @@ export const ThemeHeader = styled.header`
   align-items: center;
   justify-content: center;
   width: 100vw;
-  position: fixed;
+  /* position: fixed; */
   background-color: #ffffff;
   z-index: 99;
 
   background-color: var(--white);
-
   height: 100px;
-
   padding: 0 8vw;
 
   box-shadow: 1px 6px 9px -1px rgba(82, 80, 80, 0.55);
