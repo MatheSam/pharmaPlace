@@ -16,10 +16,11 @@ export const StyledProductCard = styled.div`
     width: 100%;
     height: 230px;
     margin-top: 15px;
+    
     & img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
