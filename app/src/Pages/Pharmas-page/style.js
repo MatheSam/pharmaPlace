@@ -22,7 +22,7 @@ export const Titulo = styled.div`
   align-items: center;
 
   .title {
-    min-width: 500px;
+    min-width: 300px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -34,7 +34,7 @@ export const Titulo = styled.div`
 
     font-family: var(--second-font);
     font-weight: 700;
-    font-size: 28px;
+    font-size: 24px;
 
     border-bottom: 0.5px solid var(--green);
 
@@ -50,20 +50,14 @@ export const ContainerCards = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  flex-direction: row;   
-  
+  flex-direction: row;
+
   @media (max-width: 734px) {
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
-    justify-content: flex-start;    
-     scroll-behavior: smooth; 
-  }
-  
-  `;
-
-
+    justify-content: flex-start;
     scroll-behavior: smooth;
   }
 `;
