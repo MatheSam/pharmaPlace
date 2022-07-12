@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Header from "../../Components/Header";
 
 export const SectionBox = styled.div`
   width: 100%;
@@ -57,6 +56,7 @@ export const Identify = styled.div`
       align-items: center;
       flex-direction: row;
       justify-content: space-evenly;
+
       .namePharma {
         color: var(--white);
 

@@ -19,9 +19,10 @@ export const Titulo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 
   .title {
-    min-width: 500px;
+    min-width: 300px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -33,7 +34,7 @@ export const Titulo = styled.div`
 
     font-family: var(--second-font);
     font-weight: 700;
-    font-size: 28px;
+    font-size: 24px;
 
     border-bottom: 0.5px solid var(--green);
 

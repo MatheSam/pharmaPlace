@@ -5,7 +5,7 @@ import Banner from "./../../Assets/banner.png";
 export const Img = styled.img`
   width: 1270px;
   height: 400px;
-  margin-top: 200px;
+  margin-top: 20px;
   background-image: url(${Banner});
   border-radius: 10px;
 

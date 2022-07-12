@@ -17,20 +17,19 @@ export const Identify = styled.div`
     flex-direction: row;
 
     .namePharma {
-      color: var(#2e3192);
-      margin-top: 240px;
+      color: white;
+      margin-top: 40px;
       margin-bottom: 40px;
       font-family: var(--main-font);
       font-size: 24px;
       font-weight: bold;
-
       margin-left: 20px;
     }
 
     .imgPharma {
       width: 60px;
       height: 60px;
-      margin-top: 240px;
+      margin-top: 40px;
       margin-bottom: 40px;
       border-radius: 60px;
       border: 2px solid var(--grey);

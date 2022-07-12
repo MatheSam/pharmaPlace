@@ -5,19 +5,17 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
 
   .productsPharm {
-    width: 350px;
+    width: 280px;
     height: 190px;
-    margin: 10px;
-    margin: 20px;
     display: flex;
-
     border-left: 2px solid var(--primary);
-
     background-color: var(--white);
     border-radius: 10px;
     transition: 0.5s;
+    margin: 20px;
   }
   .productsPharm:hover {
     transform: scale(1.1);
