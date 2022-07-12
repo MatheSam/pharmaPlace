@@ -24,12 +24,31 @@ export const Container = styled.div`
 
     height: 100%;
     width: 50%;
+
+    @media (max-width: 670px) {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      justify-content: space-around;
+    }
+  }
+
+  .animation {
+    @media (max-width: 670px) {
+      opacity: 0.1;
+      }
   }
 
   .text_one {
     width: 100%;
 
-    margin-left: 50%;
+    margin-left: 20%;
+
+    @media (max-width: 670px) {
+      margin-left: 5%;
+      font-size: 14px;
+      width: 360px;
+    }
 
     display: flex;
     align-items: flex-start;
@@ -41,11 +60,22 @@ export const Container = styled.div`
     font-family: var(--second-font);
     font-weight: bold;
     font-size: 28px;
+
+    @media (max-width: 850px) {
+      font-size: 18px;
+    }
   }
 
   .text_two {
     width: 100%;
-    margin-left: 50%;
+    margin-left: 20%;
+
+    @media (max-width: 670px) {
+      margin-left: 5%;
+      font-size: 12px;
+      width: 340px;
+      margin-right: 30px;
+    }
 
     display: flex;
     align-items: flex-start;
@@ -64,7 +94,13 @@ export const Container = styled.div`
   .text_three {
     width: 100%;
     height: 100px;
-    margin-left: 50%;
+    margin-left: 20%;
+
+    @media (max-width: 670px) {
+      margin-left: 5%;
+      font-size: 12px;
+      width: 360px;
+    }
 
     display: flex;
     align-items: flex-start;
@@ -80,7 +116,7 @@ export const Container = styled.div`
     letter-spacing: 1px;
 
     .button_visit {
-      width: 55%;
+      width: 310px;
       height: 50px;
 
       background-color: var(--redwine);
@@ -91,6 +127,15 @@ export const Container = styled.div`
       font-family: var(--second-font);
       font-weight: 500;
       font-size: 18px;
+
+      @media (max-width: 670px) {
+        width: 350px;
+        height: 35px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
       &:hover {
         font-size: 22px;
