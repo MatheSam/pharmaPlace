@@ -6,7 +6,7 @@ export const StyledCart = styled.section`
   color: var(--white);
   display: flex;
   flex-direction: column;
-  
+
   .head {
     display: flex;
     height: 70px;
@@ -90,7 +90,16 @@ export const StyledCart = styled.section`
 
     & .finalizar {
       background-color: var(--primary);
-      color: var(--white);
+      color: white !important;
+      border-radius: 4px;
+      text-align: center;
+      padding: 5px 0px;
+      opacity: 0.7;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
     }
 
     & .adicionar {

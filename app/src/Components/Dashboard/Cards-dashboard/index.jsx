@@ -15,7 +15,6 @@ const CardsDashboard = () => {
   const { products, filteredProductsDash } = useContext(ProductsContext);
 
   const pharmaProducts = products.filter(({ userId }) => userId === id);
-  console.log(pharmaProducts);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
