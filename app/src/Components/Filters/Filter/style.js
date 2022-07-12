@@ -15,7 +15,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-evenly;
   padding: 5px;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-bottom: 5px;
   border-top: 0.8px solid var(--grey);
   border-bottom: 0.8px solid var(--grey);

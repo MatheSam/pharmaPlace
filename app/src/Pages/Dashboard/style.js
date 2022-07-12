@@ -36,6 +36,7 @@ export const Identify = styled.div`
     width: 100%;
     height: 80px;
     padding: 10px;
+    margin-top: 200px;
 
     background-color: var(--primary);
 
@@ -55,6 +56,7 @@ export const Identify = styled.div`
       align-items: center;
       flex-direction: row;
       justify-content: space-evenly;
+
       .namePharma {
         color: var(--white);
 
@@ -68,7 +70,6 @@ export const Identify = styled.div`
       .imgPharma {
         width: 60px;
         height: 60px;
-
         border-radius: 60px;
         border: 2px solid var(--grey);
       }

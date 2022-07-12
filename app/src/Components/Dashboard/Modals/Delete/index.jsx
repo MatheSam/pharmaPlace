@@ -39,6 +39,8 @@ const ModalDelete = ({ product: { id } }) => {
   };
 
   const token = localStorage.getItem("@userToken");
+  console.log(id);
+  console.log(token);
 
   const deleteProduct = () => {
     api

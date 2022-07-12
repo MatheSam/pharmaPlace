@@ -14,22 +14,36 @@ const Header = () => {
       toggleDrawer("right", true, event);
     }
   };
+
+  window.onscroll = function () {
+    const header = document.querySelector("#header");
+    var sticky = header.offsetTop;
+    console.log(header);
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  };
+
   return (
-    <ThemeHeader>
+    <ThemeHeader id={"header"}>
       <div className="header">
-        <Link to={"/"}>
-          <figure className="logo">
-            <img alt="logo" src={Logo} />
-          </figure>
-        </Link>
-        <div className="buttons">
-          <div className="btnUser">
-            <MenuPopupState />
-          </div>
-          <div className="btnCart">
-            <button onClick={handleOpen} className="btnCart">
-              <CustomizedBadges />
-            </button>
+        <div className="content">
+          <Link to={"/"}>
+            <figure className="logo">
+              <img alt="logo" src={Logo} />
+            </figure>
+          </Link>
+          <div className="buttons">
+            <div className="btnUser">
+              <MenuPopupState />
+            </div>
+            <div className="btnCart">
+              <button onClick={handleOpen} className="btnCart">
+                <CustomizedBadges />
+              </button>
+            </div>
           </div>
         </div>
       </div>

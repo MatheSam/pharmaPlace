@@ -32,6 +32,7 @@ export const StyledSection = styled.section`
     overflow-x: auto;
     scroll-behavior: smooth;
     gap: 20px;
+    padding: 20px 0px;
 
     &::-webkit-scrollbar {
       display: none;

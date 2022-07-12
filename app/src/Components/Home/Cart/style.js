@@ -70,12 +70,19 @@ export const StyledCart = styled.section`
 
   .cartInfo {
     background-color: var(--white);
-    height: 150px;
-    padding: 0px 35px;
+    padding: 20px 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
+
+    .valorTotal {
+      display: flex;
+      justify-content: space-between;
+      color: black;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
 
     button {
       opacity: 1;

@@ -74,7 +74,7 @@ export const ProductsProvider = ({ children }) => {
         removeProduct,
         filteredProductsDash,
         setFilteredProductsDash,
-        filterAllWhiteCategory
+        filterAllWhiteCategory,
       }}
     >
       {children}

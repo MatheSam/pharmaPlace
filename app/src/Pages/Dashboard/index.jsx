@@ -1,7 +1,6 @@
 import CardsDashboard from "../../Components/Dashboard/Cards-dashboard";
 
-import Header from "../../Components/Header";
-import { SectionBox, Identify } from "./style";
+import { SectionBox, Identify, DashHeader } from "./style";
 
 import ModalAdd from "../../Components/Dashboard/Modals/Add";
 import SearchInput from "../../Components/Filters/Input";
@@ -11,6 +10,7 @@ import { ProductsContext } from "../../Providers/products";
 import { useContext } from "react";
 import { UsersContext } from "../../Providers/users";
 import { Link } from "react-router-dom";
+import Header from "../../Components/Header";
 
 const Dashboard = () => {
   const {
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Header />
+      <Header style={{ heigth: "500px" }} />
 
       <Identify>
         {users.map(

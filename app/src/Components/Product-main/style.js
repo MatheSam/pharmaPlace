@@ -15,8 +15,33 @@ export const StyledProductMain = styled.main`
     overflow: auto;
 
     background-color: var(--white);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .area {
+      gap: 30px 20px;
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 510px) {
+    .area {
+      gap: 30px 10px;
+    }
+  }
+
+  @media (max-width: 435px) {
+    .area {
+      padding: 9px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .area {
+      justify-content: center;
+    }
   }
 `;
