@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const appear = keyframes`
 from {
@@ -7,6 +7,16 @@ from {
 
 to {
     transform: scale(1);
+}
+`;
+
+const disapear = keyframes`
+from {
+    transform: scale(1);
+}
+
+to {
+    transform: scale(0);
 }
 `;
 
@@ -30,7 +40,15 @@ export const StyledShowProduct = styled.div`
     border-radius: 10px;
     background-color: var(--white);
     display: flex;
-    animation: ${appear} 0.6s;
+    animation-duration: 0.6s;
+    ${(props) =>
+      props.animation === true
+        ? css`
+            animation-name: ${appear};
+          `
+        : css`
+            animation-name: ${disapear};
+          `}
   }
 
   .imageArea {
