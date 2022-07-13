@@ -9,8 +9,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FiAlertCircle } from "react-icons/fi";
 import { useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/Auth";
 
-const Login = ({ auth, setAuth }) => {
+const Login = () => {
+  const { auth, setAuth } = useContext(AuthContext);
+
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -19,6 +23,12 @@ const Login = ({ auth, setAuth }) => {
     password: yup.string().required("Senha obrigatória"),
   });
 
+  useEffect(() => {
+    if (auth) {
+      return navigate("/");
+    }
+  }, [auth]);
+
   const {
     register,
     handleSubmit,
@@ -26,12 +36,6 @@ const Login = ({ auth, setAuth }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (auth) {
-      return navigate("/");
-    }
-  }, [auth]);
 
   const formData = (data) => {
     api
