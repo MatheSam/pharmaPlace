@@ -8,14 +8,15 @@ export const Container = styled.div`
   overflow-y: auto;
 
   .productsPharm {
-    width: 280px;
-    height: 190px;
+
+    width: 350px;
+    height: 200px;
+    margin: 20px;
     display: flex;
     border-left: 2px solid var(--primary);
     background-color: var(--white);
     border-radius: 10px;
     transition: 0.5s;
-    margin: 20px;
   }
   .productsPharm:hover {
     transform: scale(1.1);
@@ -70,6 +71,7 @@ export const Container = styled.div`
 
     .productsPharm {
       width: 400px;
+      height: 190px;
     }
 
     h2 {
@@ -83,15 +85,22 @@ export const BoxInfo = styled.div`
   height: 6px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-left: 25px;
+
+  .descProd {
+    font-size: 15px;
+    color: var(--fourth);
+  }
 
   span {
     margin-top: 25px;
+    color: var(--orange);
   }
 
   p {
-    margin-top: 15px;
+    margin-top: 16px;
     color: var(--redwine);
   }
 `;
