@@ -36,6 +36,7 @@ export default createGlobalStyle`
 body{
     background-color: var(--body-background);
     font-family: var(--main-font);
+    overflow-x: hidden;
 }
 
 input, button, label, select{

@@ -36,7 +36,7 @@ export const Container = styled.div`
   .animation {
     @media (max-width: 670px) {
       opacity: 0.1;
-      }
+    }
   }
 
   .text_one {

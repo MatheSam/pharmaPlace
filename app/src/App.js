@@ -10,7 +10,7 @@ function App() {
       <GlobalStyle />
       <Rotas />
       <ToastContainer
-        position="top-right"
+        position="top-left"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
