@@ -41,14 +41,14 @@ const RegisterSeller = () => {
 
   const navigate = useNavigate();
 
-  const { users, setUsers, getUsers } = useContext(UsersContext);
+  const { setUsers, getUsers } = useContext(UsersContext);
   useEffect(() => {
     getUsers().then((resp) => setUsers(resp));
   }, []);
-  console.log(users);
 
   const formData = (data) => {
     data["isPharmacy"] = true;
+    console.log(data);
     api
       .post("/users/register", data)
       .then((resp) => {

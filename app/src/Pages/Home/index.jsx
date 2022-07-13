@@ -5,16 +5,23 @@ import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import ProductMain from "../../Components/Product-main";
 import ProductSection from "../../Components/Product-section";
+import { useContext } from "react";
+import { ProductsContext } from "../../Providers/products";
 
 const Home = () => {
+  const { setInputValue, setFilteredProducts, inputFilterFunction, products } =
+    useContext(ProductsContext);
   return (
     <div>
       <Header />
       <BannerArea />
       <section>
-        <SearchFilter />
+        <SearchFilter data={products} set={setFilteredProducts} />
       </section>
-      <SearchInput />
+      <SearchInput
+        set={setInputValue}
+        func={() => inputFilterFunction(products, setFilteredProducts)}
+      />
       <ProductMain />
       <ProductSection />
       <Footer />

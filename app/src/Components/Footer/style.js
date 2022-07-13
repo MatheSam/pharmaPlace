@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const ThemeFooter = styled.footer`
-  background-color: var(--blue);
+  background-color: var(--primary);
+  color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,8 +25,10 @@ export const ThemeFooter = styled.footer`
   > ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5px;
+
     width: 700px;
-    padding-left: 170px;
     margin: 20px 0;
     @media (max-width: 700px) {
       width: 500px;
@@ -39,11 +42,24 @@ export const ThemeFooter = styled.footer`
     > li {
       display: flex;
       align-items: center;
+      text-align: center;
+      justify-content: flex-start;
+      padding: 5px;
+
       height: 40px;
-      width: 250px;
+      min-width: 200px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 0.5px solid var(--secundary);
+
       cursor: pointer;
+
+      font-family: var(--main-font);
+      font-weight: bold;
+
       &:hover {
-        color: white;
+        border: 0.5px solid var(--terciary);
+        transition: 400ms;
       }
 
       @media (max-width: 700px) {
@@ -55,12 +71,17 @@ export const ThemeFooter = styled.footer`
       }
       > a {
         text-decoration: none;
-        color: black;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        text-align: center;
 
         &:hover {
           color: white;
         }
         > svg {
+          height: 25px;
+          width: 25px;
           margin-right: 10px;
         }
       }

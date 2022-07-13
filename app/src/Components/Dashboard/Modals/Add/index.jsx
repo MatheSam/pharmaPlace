@@ -55,7 +55,7 @@ const ModalAdd = () => {
       })
       .then((resp) => {
         toast.success("Produto criado com sucesso!");
-        setProducts([...products, data]);
+        setProducts([...products, resp.data]);
         handleClose();
       })
       .catch((error) => {

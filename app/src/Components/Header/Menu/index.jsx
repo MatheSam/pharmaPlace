@@ -14,17 +14,19 @@ export default function MenuPopupState() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const token = localStorage.getItem("@userToken");
+  const user = JSON.parse(localStorage.getItem("@userData"));
+
   const navigate = useNavigate();
+
   const handleNav = (path, isTrue = false) => {
     navigate(path);
 
     if (isTrue) {
-      localStorage.removeItem("@userToken");
-      localStorage.removeItem("@userData");
+      localStorage.clear();
     }
   };
-
-  const token = localStorage.getItem("@userToken");
 
   return (
     <div>
@@ -35,7 +37,18 @@ export default function MenuPopupState() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <FaUserCircle />
+        {user?.photo ? (
+          <img
+            style={{
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%",
+            }}
+            src={user.photo}
+          />
+        ) : (
+          <FaUserCircle />
+        )}
       </Button>
       <Menu
         id="basic-menu"
@@ -47,13 +60,32 @@ export default function MenuPopupState() {
         }}
       >
         {token ? (
-          <MenuItem
-            onClick={() => {
-              handleNav("/login", true);
-            }}
-          >
-            Log Out
-          </MenuItem>
+          user.isPharmacy ? (
+            <div>
+              <MenuItem
+                onClick={() => {
+                  handleNav("/dashboard");
+                }}
+              >
+                Minha Farmácia
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleNav("/login", true);
+                }}
+              >
+                Log Out
+              </MenuItem>
+            </div>
+          ) : (
+            <MenuItem
+              onClick={() => {
+                handleNav("/login", true);
+              }}
+            >
+              Log Out
+            </MenuItem>
+          )
         ) : (
           <div>
             <MenuItem
@@ -76,3 +108,43 @@ export default function MenuPopupState() {
     </div>
   );
 }
+
+/* import * as React from "react";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+
+export default function MenuPopupState() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
+  return (
+    <div>
+      <Button aria-describedby={id} variant="contained" onClick={handleClick}>
+        Open Popover
+      </Button>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
+        <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+      </Popover>
+    </div>
+  );
+} */

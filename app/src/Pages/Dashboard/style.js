@@ -30,3 +30,57 @@ export const SectionBox = styled.div`
     border-radius: 10px;
   }
 `;
+
+export const Identify = styled.div`
+  .identify {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-top: 200px;
+
+    background-color: var(--primary);
+
+    border-top: 0.5px solid var(--grey);
+    border-bottom: 0.5px solid var(--grey);
+
+    margin-top: 15px;
+    margin-bottom: -10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+
+    > div {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-evenly;
+
+      .namePharma {
+        color: var(--white);
+
+        font-family: var(--main-font);
+        font-size: 24px;
+        font-weight: bold;
+
+        margin-left: 20px;
+      }
+
+      .imgPharma {
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+        border: 2px solid var(--grey);
+      }
+    }
+  }
+
+  section {
+    .allButton,
+    .homeButton {
+      background-color: transparent;
+      color: var(--white);
+    }
+  }
+`;

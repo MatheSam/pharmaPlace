@@ -20,10 +20,12 @@ export const StyledSection = styled.section`
 
     .left {
       font-size: 40px;
+      z-index: 1;
     }
 
     .right {
       font-size: 40px;
+      z-index: 1;
     }
   }
 
@@ -32,7 +34,8 @@ export const StyledSection = styled.section`
     overflow-x: auto;
     scroll-behavior: smooth;
     gap: 20px;
-
+    padding: 20px 0px;
+    position: relative;
     &::-webkit-scrollbar {
       display: none;
     }

@@ -8,12 +8,15 @@ export const Container = styled.div`
       margin-right: 10px;
     }
   }
+  a {
+    color: black;
+  }
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-top: 0.8px solid var(--grey);
   border-bottom: 0.8px solid var(--grey);
 

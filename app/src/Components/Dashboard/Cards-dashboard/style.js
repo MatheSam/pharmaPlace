@@ -8,14 +8,12 @@ export const Container = styled.div`
   overflow-y: auto;
 
   .productsPharm {
+
     width: 350px;
     height: 200px;
-    margin: 10px;
     margin: 20px;
     display: flex;
-
     border-left: 2px solid var(--primary);
-
     background-color: var(--white);
     border-radius: 10px;
     transition: 0.5s;

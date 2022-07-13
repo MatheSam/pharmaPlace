@@ -1,18 +1,14 @@
 import { Container } from "./style";
-import { useContext } from "react";
-import { ProductsContext } from "../../../Providers/products";
 
-const SearchInput = () => {
-  const { setInputValue, inputFilterFunction } = useContext(ProductsContext);
-
+const SearchInput = ({ set, func, ...rest }) => {
   return (
     <Container>
       <input
-        onChange={(evt) => setInputValue(evt.target.value)}
+        onChange={(evt) => set(evt.target.value)}
         className="input"
         placeholder="Digite aqui sua busca"
       />
-      <button onClick={inputFilterFunction} type="submit" className="button">
+      <button onClick={func} type="submit" className="button">
         Buscar
       </button>
     </Container>

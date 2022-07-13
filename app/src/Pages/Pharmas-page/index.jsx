@@ -1,9 +1,10 @@
 import CardsPharma from "../../Components/Cards-pharms";
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
-import { Container, ContainerCards } from "./style";
+import { Container, ContainerCards, Titulo } from "./style";
 import { UsersContext } from "../../Providers/users";
 import { useContext } from "react";
+import { FaRegHandshake } from "react-icons/fa"
 
 const PharmasPage = () => {
   const { users } = useContext(UsersContext);
@@ -11,23 +12,24 @@ const PharmasPage = () => {
 
   const isPharma = users.filter((item)=>{
     return item.isPharmacy === true
-  })
-  
+  })  
 
   return (
     <>
       <Header />
       <Container>
-        <div>
-          <h1>FARMÁCIAS PARCEIRAS</h1>
-        </div>
-        <ContainerCards>
+        <Titulo >
+          <h1 className="title">FARMÁCIAS PARCEIRAS <FaRegHandshake/></h1>
+        </Titulo>
+        <ContainerCards>  
+          
           {isPharma.map((pharm) => (
             <CardsPharma key={pharm.id} pharm={pharm} />
-          ))}
+            ))}           
+                
         </ContainerCards>
-        <Footer />
       </Container>
+        <Footer />
     </>
   );
 };

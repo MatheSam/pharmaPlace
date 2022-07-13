@@ -4,38 +4,56 @@ export const ThemeHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-
-  height: 120px;
-
+  width: 100%;
+  height: 100px;
   padding: 0 8vw;
+  background-color: #fff;
+  transition: 0.3s;
 
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 6px 9px -1px rgba(82, 80, 80, 0.55);
+  -webkit-box-shadow: 1px 6px 9px -1px rgba(82, 80, 80, 0.55);
+  -moz-box-shadow: 1px 6px 9px -1px rgba(82, 80, 80, 0.55);
+
+  .content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sticky {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    width: 100vw;
+    z-index: 99;
+    background-color: #fff;
+  }
 
   .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 1200px;
+    justify-content: center;
+    width: 100vw;
 
     @media (max-width: 500px) {
       width: 100vw;
     }
 
     .logo {
-      width: 230px;
-      height: 69px;
+      width: 200px;
+      height: 90px;
       img {
         width: 100%;
-        height: 69px;
+        height: 90px;
       }
       @media (max-width: 500px) {
         width: 169px;
         height: 60px;
         img {
-          height: 60px;
+          height: 80px;
         }
       }
     }

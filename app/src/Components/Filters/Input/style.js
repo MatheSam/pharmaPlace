@@ -39,7 +39,8 @@ export const Container = styled.div`
 
     padding: 10px;
 
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     height: 40px;
 
     color: var(--grey2);
@@ -48,6 +49,8 @@ export const Container = styled.div`
     font-size: 18px;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 360px) {
+    flex-direction: column;
+    gap: 20px;
   }
 `;

@@ -37,7 +37,7 @@ const ProductSection = () => {
           refe={kid}
         />
         <Section
-          title="Matenha a higiene em dia!!!"
+          title="Mantenha a higiene em dia!!!"
           listProducts={healthProducts}
           refe={health}
         />
