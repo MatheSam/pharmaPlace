@@ -9,7 +9,15 @@ export const Container = styled.div`
   justify-content: center;
   margin-top: 15px;
 
-  background-color: var(--primary);
+  //background-color: var(--primary);
+  background-image: linear-gradient(
+    to bottom,
+    #2e3192,
+    #3544a0,
+    #3f57ae,
+    #4b6aba,
+    #597dc6
+  );
 
   @media (max-width: 650px) {
     width: 100%;
@@ -30,6 +38,12 @@ export const Container = styled.div`
       width: 100%;
       height: 50%;
       justify-content: space-around;
+    }
+  }
+
+  .second {
+    @media (min-width: 824px) {
+      margin-right: 150px;
     }
   }
 

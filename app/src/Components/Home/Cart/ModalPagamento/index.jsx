@@ -7,7 +7,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import qrCode from "./../../../../Assets/qrcode.svg";
-import { Container, Pix } from "./style";
+import { Container, ContainerAll, Pix } from "./style";
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { CartContext, CartProvider } from "./../../../../Providers/Cart/index";
@@ -51,8 +51,8 @@ export default function Payment() {
   };
 
   return (
-    <div>
-      <Button onClick={handleOpen}>Realizar pagamento</Button>
+    <ContainerAll>
+      <Button onClick={handleOpen} className="btnPag">Realizar pagamento</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -95,6 +95,6 @@ export default function Payment() {
           )}
         </Box>
       </Modal>
-    </div>
+    </ContainerAll>
   );
 }
