@@ -8,8 +8,9 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FiAlertCircle } from "react-icons/fi";
+import { useEffect } from "react";
 
-const Login = () => {
+const Login = ({ auth, setAuth }) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -26,6 +27,12 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (auth) {
+      return navigate("/");
+    }
+  }, [auth]);
+
   const formData = (data) => {
     api
       .post("/login", data)
@@ -33,6 +40,7 @@ const Login = () => {
         toast.success("Seja bem vindo");
         localStorage.setItem("@userToken", resp.data.accessToken);
         localStorage.setItem("@userData", JSON.stringify(resp.data.user));
+        setAuth(true);
         resp.data.user.isPharmacy ? navigate("/dashboard") : navigate("/");
       })
       .catch((error) => {
