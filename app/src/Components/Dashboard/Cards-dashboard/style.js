@@ -5,10 +5,11 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
 
   .productsPharm {
     width: 350px;
-    height: 190px;
+    height: 200px;
     margin: 10px;
     margin: 20px;
     display: flex;
