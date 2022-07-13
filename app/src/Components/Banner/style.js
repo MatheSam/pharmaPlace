@@ -34,6 +34,7 @@ export const Container = styled.div`
 
     @media (max-width: 900px) {
       position: absolute;
+      max-width: 600px;
       width: 100%;
       height: 50%;
       justify-content: space-around;
@@ -47,7 +48,7 @@ export const Container = styled.div`
   }
 
   .animation {
-    @media (max-width: 670px) {
+    @media (max-width: 900px) {
       opacity: 0.1;
     }
   }
@@ -61,6 +62,7 @@ export const Container = styled.div`
       margin-left: 5%;
       font-size: 14px;
       width: 360px;
+      padding: 0;
     }
 
     display: flex;
