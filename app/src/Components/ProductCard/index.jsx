@@ -1,5 +1,6 @@
 import formatPrice from "../../utils/formatPrice";
 import { StyledProductCard } from "./style";
+import { capitalizeFirstLowercaseRest } from "../../utils/capitalizeFirst";
 
 const ProductCard = ({ image, name, price, id }) => {
   return (
@@ -9,7 +10,7 @@ const ProductCard = ({ image, name, price, id }) => {
       </div>
       <div className="infoArea">
         <div className="info">
-          <p>{name}</p>
+          <p>{capitalizeFirstLowercaseRest(name)}</p>
           <span>{formatPrice(price)}</span>
         </div>
         <button>Comprar</button>

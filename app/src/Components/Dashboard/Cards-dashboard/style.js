@@ -72,6 +72,7 @@ export const Container = styled.div`
 
     .productsPharm {
       width: 400px;
+      height: 190px;
     }
 
     h2 {
@@ -85,15 +86,22 @@ export const BoxInfo = styled.div`
   height: 6px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-left: 25px;
+
+  .descProd {
+    font-size: 15px;
+    color: var(--fourth);
+  }
 
   span {
     margin-top: 25px;
+    color: var(--orange);
   }
 
   p {
-    margin-top: 15px;
+    margin-top: 16px;
     color: var(--redwine);
   }
 `;

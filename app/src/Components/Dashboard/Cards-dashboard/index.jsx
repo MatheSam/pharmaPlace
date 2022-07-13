@@ -4,6 +4,10 @@ import { ProductsContext } from "../../../Providers/products";
 import ModalEdit from "../Modals/Edit";
 import ModalDelete from "../Modals/Delete";
 import formatPrice from "../../../utils/formatPrice";
+import {
+  capitalizeFirst,
+  capitalizeFirstLowercaseRest,
+} from "../../../utils/capitalizeFirst";
 import { TbMoodSad } from "react-icons/tb";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -32,9 +36,11 @@ const CardsDashboard = () => {
               <img src={el.image} alt={el.name} />
             </div>
             <BoxInfo>
-              <span>{el.name}</span>
-              <span>{el.category}</span>
-              <span>{formatPrice(el.price)}</span>
+              <span className="descProd">
+                {capitalizeFirstLowercaseRest(el.name)}
+              </span>
+              <span>{capitalizeFirst(el.category)}</span>
+              <p>{formatPrice(el.price)}</p>
             </BoxInfo>
             <div className="iconsBox">
               <ModalEdit product={el} />

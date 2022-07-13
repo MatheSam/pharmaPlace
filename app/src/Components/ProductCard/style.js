@@ -36,7 +36,7 @@ export const StyledProductCard = styled.div`
       font-family: var(--main-font);
       & p {
         font-weight: 400;
-        font-size: 15px;
+        font-size: 12px;
       }
 
       & span {
