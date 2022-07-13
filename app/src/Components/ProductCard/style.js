@@ -43,10 +43,9 @@ export const StyledProductCard = styled.div`
       justify-content: space-between;
       font-family: var(--second-font);
       & p {
-        font-weight: 500;
+        font-weight: 400;
+        font-size: 12px;
         color: var(--grey2);
-        font-size: 16px;
-
         max-width: 280px;
         white-space: nowrap;
         overflow: hidden;
