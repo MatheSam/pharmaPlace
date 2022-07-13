@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const ContainerAll = styled.div`
+  .btnPag {
+    color: var(--white);
+  }
+`;
+
 export const Pix = styled.div`
   display: flex;
   flex-direction: column;

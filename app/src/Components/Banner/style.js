@@ -8,8 +8,15 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 15px;
-
-  background-color: var(--primary);
+  
+  background-image: linear-gradient(
+    to bottom,
+    #2e3192,
+    #3544a0,
+    #3f57ae,
+    #4b6aba,
+    #597dc6
+  );
 
   @media (max-width: 650px) {
     width: 100%;
@@ -25,16 +32,23 @@ export const Container = styled.div`
     height: 100%;
     width: 50%;
 
-    @media (max-width: 670px) {
+    @media (max-width: 900px) {
       position: absolute;
+      max-width: 600px;
       width: 100%;
       height: 50%;
       justify-content: space-around;
     }
   }
 
+  .second {
+    @media (min-width: 824px) {
+      margin-right: 150px;
+    }
+  }
+
   .animation {
-    @media (max-width: 670px) {
+    @media (max-width: 900px) {
       opacity: 0.1;
     }
   }
@@ -48,6 +62,7 @@ export const Container = styled.div`
       margin-left: 5%;
       font-size: 14px;
       width: 360px;
+      padding: 0;
     }
 
     display: flex;
