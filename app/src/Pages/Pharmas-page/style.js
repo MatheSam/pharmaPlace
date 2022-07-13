@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
   background-color: #f4f4f4;
@@ -46,7 +47,7 @@ export const Titulo = styled.div`
   }
 `;
 
-export const ContainerCards = styled.div`
+export const ContainerCards = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

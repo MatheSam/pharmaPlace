@@ -26,7 +26,13 @@ const ProductCard = ({ image, name, price, id }) => {
   };
 
   return (
-    <StyledProductCard onClick={handleCardClick}>
+    <StyledProductCard
+      onClick={handleCardClick}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="imageArea">
         <img src={image} alt={name} />
       </div>
