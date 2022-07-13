@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import {motion} from "framer-motion"
 
-export const StyledProductCard = styled.div`
+export const StyledProductCard = styled(motion.div)`
   width: 200px;
   height: 350px;
   box-shadow: 0px 0px 18px 1px rgba(186, 185, 185, 0.75);
