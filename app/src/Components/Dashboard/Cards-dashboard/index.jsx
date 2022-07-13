@@ -13,7 +13,6 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-
 const CardsDashboard = () => {
   const id = JSON.parse(localStorage.getItem("@userData")).id;
   const { products } = useContext(ProductsContext);
