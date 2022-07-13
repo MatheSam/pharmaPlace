@@ -11,15 +11,18 @@ import React, { useContext, useEffect } from "react";
 import { UsersContext } from "../../Providers/users";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
+import { AuthContext } from "../../Providers/Auth";
 
-const Dashboard = ({ auth }) => {
+const Dashboard = () => {
   const navigate = useNavigate();
+
+  const { auth } = useContext(AuthContext);
 
   React.useEffect(() => {
     const user = JSON.parse(localStorage.getItem("@userData"))?.isPharmacy;
-    if (auth == false) {
+    if (auth === false) {
       return navigate("/login");
-    } else if (auth == undefined && !user) {
+    } else if (auth === undefined && !user) {
       return navigate("/");
     }
   }, []);
