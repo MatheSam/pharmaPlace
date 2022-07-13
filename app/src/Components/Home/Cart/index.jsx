@@ -52,11 +52,11 @@ const Cart = () => {
         <div className="cartInfo">
           <div className="valorTotal">
             <div>
-              <p>Valor Pedido: </p>
+              <p>Valor pedido: </p>
               <p>{formatPrice(amountPrice)}</p>
             </div>
 
-            {amountPrice > 100 ? (
+            {amountPrice > 99.9 ? (
               <div className="frete0">
                 <div>
                   <p>Valor frete:</p>
