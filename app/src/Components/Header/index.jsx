@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import CustomizedBadges from "./IconCart";
 import { useContext } from "react";
 import { CartContext } from "../../Providers/Cart";
+import Cart from "../../Components/Home/Cart";
 
 const Header = () => {
   const { cart, toggleDrawer } = useContext(CartContext);
@@ -28,6 +29,7 @@ const Header = () => {
 
   return (
     <ThemeHeader id={"header"}>
+      <Cart />
       <div className="header">
         <div className="content">
           <Link to={"/"}>

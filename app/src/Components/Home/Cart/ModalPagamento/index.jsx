@@ -10,7 +10,7 @@ import qrCode from "./../../../../Assets/qrcode.svg";
 import { Container, Pix } from "./style";
 import { toast } from "react-toastify";
 import { useContext } from "react";
-import { CartContext } from "./../../../../Providers/Cart/index";
+import { CartContext, CartProvider } from "./../../../../Providers/Cart/index";
 import { valueToPercent } from "@mui/base";
 
 const style = {
@@ -26,6 +26,7 @@ const style = {
 };
 
 export default function Payment() {
+  const { toggleDrawer } = useContext(CartContext);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -42,6 +43,7 @@ export default function Payment() {
     if (value) {
       toast.success("Compra finalizada com sucesso!");
       setCart([]);
+      toggleDrawer("right", false, e);
       handleClose();
     } else {
       toast.error("Selecionar uma opção valida");
