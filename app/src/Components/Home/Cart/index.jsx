@@ -7,6 +7,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import CartItem from "../../CartItem";
 import { CartContext } from "../../../Providers/Cart";
 import Payment from "./ModalPagamento";
+import formatPrice from "../../../utils/formatPrice";
 
 const Cart = () => {
   const { cart, state, toggleDrawer } = React.useContext(CartContext);
@@ -53,7 +54,7 @@ const Cart = () => {
         <div className="cartInfo">
           <div className="valorTotal">
             <p>Valor Total: </p>
-            <p>R$ {amountPrice.toFixed(2).replace(".", ",")}</p>
+            <p>R$ {formatPrice(amountPrice)}</p>
           </div>
           <div className="finalizar">
             <Payment />

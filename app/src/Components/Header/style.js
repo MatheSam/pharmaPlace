@@ -4,7 +4,7 @@ export const ThemeHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 100px;
   padding: 0 8vw;
   background-color: #fff;
@@ -15,7 +15,8 @@ export const ThemeHeader = styled.header`
   -moz-box-shadow: 1px 6px 9px -1px rgba(82, 80, 80, 0.55);
 
   .content {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -10,6 +10,10 @@ export const ProductsProvider = ({ children }) => {
   const [filteredProductsDash, setFilteredProductsDash] = useState([]);
   const [pharmaProductsList, setPharmaProductsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [modalProduct, setModalProduct] = useState({
+    open: false,
+    product: {},
+  });
 
   const getProducts = async () => {
     const response = await api.get("/products");
@@ -75,6 +79,8 @@ export const ProductsProvider = ({ children }) => {
         filteredProductsDash,
         setFilteredProductsDash,
         filterAllWhiteCategory,
+        modalProduct,
+        setModalProduct,
       }}
     >
       {children}

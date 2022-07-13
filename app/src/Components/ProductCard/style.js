@@ -3,20 +3,26 @@ import styled from "styled-components";
 export const StyledProductCard = styled.div`
   width: 200px;
   height: 350px;
-  box-shadow: 0px 0px 18px 1px rgba(186,185,185,0.75);
-  -webkit-box-shadow: 0px 0px 18px 1px rgba(186,185,185,0.75);
-  -moz-box-shadow: 0px 0px 18px 1px rgba(186,185,185,0.75);
+  box-shadow: 0px 0px 18px 1px rgba(186, 185, 185, 0.75);
+  -webkit-box-shadow: 0px 0px 18px 1px rgba(186, 185, 185, 0.75);
+  -moz-box-shadow: 0px 0px 18px 1px rgba(186, 185, 185, 0.75);
   border-radius: 10px;
   background-color: var(--white);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  transition: all ease 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   .imageArea {
     width: 100%;
     height: 230px;
     margin-top: 15px;
-    
+
     & img {
       width: 100%;
       height: 100%;
