@@ -1,12 +1,20 @@
 import { useContext } from "react";
 import { CartContext } from "../../Providers/Cart";
+import { ProductsContext } from "../../Providers/products";
 import formatPrice from "../../utils/formatPrice";
 import { StyledProductCard } from "./style";
 
 const ProductCard = ({ image, name, price, id }) => {
   const { cart, addToCart, toggleDrawer } = useContext(CartContext);
+  const { setModalProduct } = useContext(ProductsContext);
 
   const cartItem = { image, name, price, id, quantity: 1 };
+
+  const handleCardClick = (event) => {
+    if (event.target.nodeName !== "BUTTON") {
+      setModalProduct({ open: true, product: { image, name, price, id } });
+    }
+  };
 
   const handleClick = (event) => {
     if (cart.length === 0) {
@@ -17,7 +25,7 @@ const ProductCard = ({ image, name, price, id }) => {
   };
 
   return (
-    <StyledProductCard>
+    <StyledProductCard onClick={handleCardClick}>
       <div className="imageArea">
         <img src={image} alt={name} />
       </div>

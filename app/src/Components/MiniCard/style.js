@@ -5,10 +5,17 @@ export const StyledMiniCard = styled.div`
   height: 250px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  background-color: var(--white);
+  background-color: var(--reed);
   display: flex;
   flex-direction: column;
   flex: none;
+
+  transition: all ease 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   .imageArea {
     width: 100%;

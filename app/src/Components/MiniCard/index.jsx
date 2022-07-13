@@ -4,11 +4,19 @@ import formatName from "../../utils/formatName";
 import formatPrice from "../../utils/formatPrice";
 import { useContext } from "react";
 import { CartContext } from "../../Providers/Cart";
+import { ProductsContext } from "../../Providers/products";
 
 const MiniCard = ({ name, image, price, id }) => {
   const { cart, addToCart, toggleDrawer } = useContext(CartContext);
+  const { setModalProduct } = useContext(ProductsContext);
 
   const cartItem = { image, name, price, id, quantity: 1 };
+
+  const handleCardClick = (event) => {
+    if (event.target.nodeName !== "BUTTON") {
+      setModalProduct({ open: true, product: { image, name, price, id } });
+    }
+  };
 
   const handleClick = (event) => {
     if (cart.length === 0) {
@@ -19,7 +27,7 @@ const MiniCard = ({ name, image, price, id }) => {
   };
 
   return (
-    <StyledMiniCard>
+    <StyledMiniCard onClick={handleCardClick}>
       <div className="imageArea">
         <img src={image} alt={name} />
       </div>
