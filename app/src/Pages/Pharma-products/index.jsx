@@ -8,7 +8,6 @@ import { ProductsContext } from "../../Providers/products";
 import { useContext } from "react";
 import ProductCard from "../../Components/ProductCard";
 import { UsersContext } from "../../Providers/users";
-import Cart from "../../Components/Home/Cart";
 
 const PharmaProducts = () => {
   const params = useParams();
@@ -56,7 +55,6 @@ const PharmaProducts = () => {
 
   return (
     <>
-      <Cart />
       <Header />
       <Identify>{identifyRender(users)}</Identify>
 
